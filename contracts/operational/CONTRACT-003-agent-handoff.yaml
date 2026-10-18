@@ -1,0 +1,40 @@
+schema_version: 1
+contract_id: CONTRACT-003
+version: 1.0.0
+contract_type: operational_agent_handoff
+title: Agent handoff traceability
+originating_spec_reference: null
+originating_spec_hash: null
+requirement_ids: []
+task_ids: []
+responsible_agent: orchestrator
+required_inputs: []
+expected_outputs:
+- name: handoff_record
+  path: task-handoff.json
+  required: true
+  format: json
+  schema_path: ../schemas/handoff.schema.json
+preconditions:
+- Both agent profiles and the task scope are available.
+postconditions:
+- Handoff records contain task, specification, contract and evidence references.
+invariants:
+- A handoff does not change approved requirements or grant approval.
+allowed_scope:
+  paths:
+  - .
+  operations:
+  - read
+  - write
+dependencies: []
+validation_rules:
+- id: handoff-schema
+  kind: schema
+  description: Validate handoff JSON using the versioned handoff schema.
+  schema_path: ../schemas/handoff.schema.json
+approval_required: false
+lifecycle_state: ACTIVE
+missing_fields: []
+content_hash: 66508b4edff157f516a6eda26eea9d7b1be3926c9de2e93275630ba854ccc222
+approval_metadata: {}

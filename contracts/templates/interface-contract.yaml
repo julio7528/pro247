@@ -1,0 +1,25 @@
+schema_version: 1
+contract_id: CONTRACT-000
+version: 0.1.0
+contract_type: product_interface
+title: "[Confirmed interface or integration obligation]"
+originating_spec_reference: SPEC-000@0.0.0
+originating_spec_hash: "0000000000000000000000000000000000000000000000000000000000000000"
+requirement_ids: []
+task_ids: []
+responsible_agent: "[Configured agent profile]"
+required_inputs: []
+expected_outputs: []
+preconditions: []
+postconditions: []
+invariants: []
+allowed_scope:
+  paths: []
+  operations: []
+dependencies: []
+validation_rules: []
+approval_required: true
+lifecycle_state: DRAFT
+missing_fields: ["Replace every placeholder with confirmed interface data"]
+content_hash: "0000000000000000000000000000000000000000000000000000000000000000"
+approval_metadata: {}

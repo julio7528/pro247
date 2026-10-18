@@ -1,0 +1,9 @@
+# Runtime state is local and is rebuilt from the declarative workflow.
+.codex/orchestrator-state.sqlite3
+.codex/orchestrator-state.sqlite3-shm
+.codex/orchestrator-state.sqlite3-wal
+
+# Python bytecode and local caches.
+__pycache__/
+*.py[cod]
+.pytest_cache/

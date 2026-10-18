@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arqcalc.local/contracts/task-contract.schema.json",
+  "title": "Execution contract",
+  "type": "object",
+  "required": [
+    "schema_version", "contract_id", "version", "contract_type", "title",
+    "originating_spec_reference", "originating_spec_hash", "requirement_ids", "task_ids",
+    "responsible_agent", "required_inputs", "expected_outputs", "preconditions", "postconditions",
+    "invariants", "allowed_scope", "dependencies", "validation_rules", "approval_required",
+    "lifecycle_state", "missing_fields", "content_hash", "approval_metadata"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "contract_id": {"type": "string", "pattern": "^CONTRACT-[0-9]{3,}$"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "contract_type": {"enum": ["operational_task_execution", "operational_execution_result", "operational_agent_handoff", "product_task", "product_interface"]},
+    "title": {"type": "string", "minLength": 1},
+    "originating_spec_reference": {"type": ["string", "null"], "pattern": "^SPEC-[0-9]{3,}@[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "originating_spec_hash": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "requirement_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^(RF|RNF|CA)-[0-9]{3,}$"}},
+    "task_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^TASK-[0-9]{3,}$"}},
+    "responsible_agent": {"type": "string", "minLength": 1},
+    "required_inputs": {"type": "array", "items": {"$ref": "#/$defs/input"}},
+    "expected_outputs": {"type": "array", "items": {"$ref": "#/$defs/output"}},
+    "preconditions": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "postconditions": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "invariants": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "allowed_scope": {
+      "type": "object", "required": ["paths", "operations"],
+      "properties": {
+        "summary": {"type": "string"},
+        "paths": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "operations": {"type": "array", "uniqueItems": true, "items": {"enum": ["read", "write", "execute", "network"]}}
+      },
+      "additionalProperties": false
+    },
+    "dependencies": {"type": "array", "items": {"$ref": "#/$defs/dependency"}},
+    "validation_rules": {"type": "array", "items": {"$ref": "#/$defs/validationRule"}},
+    "approval_required": {"type": "boolean"},
+    "lifecycle_state": {"enum": ["DRAFT", "IN_REVIEW", "APPROVED", "REJECTED", "OBSOLETE", "ACTIVE"]},
+    "missing_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "approval_metadata": {"type": "object", "additionalProperties": true}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"contract_type": {"enum": ["product_task", "product_interface"]}}},
+      "then": {"properties": {"originating_spec_reference": {"type": "string"}, "originating_spec_hash": {"type": "string"}, "approval_required": {"const": true}}}
+    },
+    {
+      "if": {"properties": {"contract_type": {"enum": ["operational_task_execution", "operational_execution_result", "operational_agent_handoff"]}}},
+      "then": {"properties": {"originating_spec_reference": {"type": "null"}, "originating_spec_hash": {"type": "null"}, "approval_required": {"const": false}, "lifecycle_state": {"const": "ACTIVE"}}}
+    }
+  ],
+  "$defs": {
+    "input": {
+      "type": "object", "required": ["name", "path", "required"],
+      "properties": {"name": {"type": "string", "minLength": 1}, "path": {"type": "string", "minLength": 1}, "required": {"type": "boolean"}, "schema": {"type": "object"}, "schema_path": {"type": "string"}},
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object", "required": ["name", "path", "required", "format"],
+      "properties": {"name": {"type": "string", "minLength": 1}, "artifact_id": {"type": "string"}, "path": {"type": "string", "minLength": 1}, "required": {"type": "boolean"}, "format": {"enum": ["json", "yaml", "markdown", "text", "binary"]}, "schema": {"type": "object"}, "schema_path": {"type": "string"}},
+      "additionalProperties": false
+    },
+    "dependency": {
+      "type": "object", "required": ["kind", "id"],
+      "properties": {"kind": {"enum": ["contract", "task"]}, "id": {"type": "string"}, "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"}},
+      "additionalProperties": false
+    },
+    "validationRule": {
+      "type": "object", "required": ["id", "kind", "description"],
+      "properties": {"id": {"type": "string", "minLength": 1}, "kind": {"enum": ["schema", "traceability", "scope", "manual"]}, "description": {"type": "string", "minLength": 1}, "target": {"type": "string"}, "schema": {"type": "object"}, "schema_path": {"type": "string"}},
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

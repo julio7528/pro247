@@ -1,0 +1,18 @@
+schema_version: 1
+task_id: TASK-000
+title: "[Título confirmado no planejamento]"
+originating_spec_reference: SPEC-000@0.0.0
+requirement_ids: []
+responsible_agent: "[ID do perfil de agente]"
+scope: "[Escopo de tarefa aprovado]"
+contract:
+  type: product_task
+  required_inputs: []
+  expected_outputs: []
+  preconditions: []
+  postconditions: []
+  invariants: []
+  allowed_paths: []
+  operations: []
+  dependencies: []
+  validation_rules: []

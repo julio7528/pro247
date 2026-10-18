@@ -1,0 +1,831 @@
+{
+  "schemaVersion": 1,
+  "conversations": [
+    {
+      "id": "eeb55249-2b6c-4e0c-9039-45400f927600",
+      "title": "O que vence esta semana?",
+      "createdAt": "2026-10-16T01:02:01.626Z",
+      "updatedAt": "2026-10-16T09:51:59.993Z",
+      "lastMessageAt": "2026-10-16T09:51:59.993Z",
+      "createRequestId": "7bd81108-191f-43fc-a3bb-e48266e69a75",
+      "nextSequence": 7
+    },
+    {
+      "id": "936c6f52-0865-48d3-8cbc-5253610edcdb",
+      "title": "Proposta financeira",
+      "createdAt": "2026-10-16T21:46:27.559Z",
+      "updatedAt": "2026-10-16T21:46:27.692Z",
+      "lastMessageAt": "2026-10-16T21:46:27.692Z",
+      "createRequestId": "5795b0d9-450a-4d95-be8c-b4b678b8b740",
+      "nextSequence": 3
+    },
+    {
+      "id": "548c8872-34c0-4ae4-8b74-ae8d35b357cb",
+      "title": "Proposta financeira",
+      "createdAt": "2026-10-16T21:51:08.284Z",
+      "updatedAt": "2026-10-16T21:51:08.473Z",
+      "lastMessageAt": "2026-10-16T21:51:08.473Z",
+      "createRequestId": "736cb621-26eb-4775-a38d-927c5f5b3930",
+      "nextSequence": 3
+    },
+    {
+      "id": "903b1380-2537-4a25-bed3-eda82414f13d",
+      "title": "Proposta financeira",
+      "createdAt": "2026-10-16T21:54:39.156Z",
+      "updatedAt": "2026-10-16T21:54:39.339Z",
+      "lastMessageAt": "2026-10-16T21:54:39.339Z",
+      "createRequestId": "95502d6a-7eac-407c-a03a-fef860487457",
+      "nextSequence": 3
+    },
+    {
+      "id": "5bc405f0-b985-407a-8bd7-2140cced751c",
+      "title": "Proposta financeira",
+      "createdAt": "2026-10-16T21:54:47.717Z",
+      "updatedAt": "2026-10-16T21:54:47.855Z",
+      "lastMessageAt": "2026-10-16T21:54:47.855Z",
+      "createRequestId": "cc6cbf83-4897-44d8-9f89-0b8ba5fd5e1d",
+      "nextSequence": 3
+    },
+    {
+      "id": "316eb7fc-a03e-4f20-8ff1-2b9321c29f98",
+      "title": "Proposta financeira",
+      "createdAt": "2026-10-16T21:58:03.159Z",
+      "updatedAt": "2026-10-16T21:58:03.328Z",
+      "lastMessageAt": "2026-10-16T21:58:03.328Z",
+      "createRequestId": "08195e39-ad3c-4343-bd96-ffbacad2d37e",
+      "nextSequence": 3
+    },
+    {
+      "id": "890f400f-1c6e-403b-a423-a8bb16bbcb92",
+      "title": "Proposta financeira",
+      "createdAt": "2026-10-16T21:58:23.759Z",
+      "updatedAt": "2026-10-16T21:58:29.710Z",
+      "lastMessageAt": "2026-10-16T21:58:29.710Z",
+      "createRequestId": "11b1c56c-16d0-4fab-a777-df7353ec06dd",
+      "nextSequence": 3
+    },
+    {
+      "id": "1a2501a8-678a-4598-a926-58a3c84bd7f4",
+      "title": "Proposta financeira",
+      "createdAt": "2026-10-16T21:59:13.575Z",
+      "updatedAt": "2026-10-16T21:59:14.531Z",
+      "lastMessageAt": "2026-10-16T21:59:14.531Z",
+      "createRequestId": "cc40665a-1106-40bf-8a90-47f977988a78",
+      "nextSequence": 3
+    },
+    {
+      "id": "3575af73-8e62-4579-83d2-4cb7e63deadb",
+      "title": "Proposta financeira",
+      "createdAt": "2026-10-16T21:59:18.621Z",
+      "updatedAt": "2026-10-16T21:59:18.774Z",
+      "lastMessageAt": "2026-10-16T21:59:18.774Z",
+      "createRequestId": "f00320fb-680d-490d-b286-f9a12e31dff1",
+      "nextSequence": 3
+    },
+    {
+      "id": "320c4041-f967-463a-b746-e8dfb382cf97",
+      "title": "Proposta financeira",
+      "createdAt": "2026-10-16T22:00:51.394Z",
+      "updatedAt": "2026-10-16T22:00:51.838Z",
+      "lastMessageAt": "2026-10-16T22:00:51.838Z",
+      "createRequestId": "769a8f4f-d044-4afd-a9e4-e6481f9feca2",
+      "nextSequence": 3
+    },
+    {
+      "id": "56ffcffd-5b01-469c-9f29-5091e0a07bfc",
+      "title": "Proposta financeira",
+      "createdAt": "2026-10-16T22:02:13.763Z",
+      "updatedAt": "2026-10-16T22:02:13.902Z",
+      "lastMessageAt": "2026-10-16T22:02:13.902Z",
+      "createRequestId": "992dfb14-a69e-4b73-b17a-053d6d2cbd7d",
+      "nextSequence": 3
+    },
+    {
+      "id": "1ac65aa8-8ba8-4485-b2cb-ea487607e143",
+      "title": "Nova conversa",
+      "createdAt": "2026-10-17T23:33:33.514Z",
+      "updatedAt": "2026-10-17T23:33:33.514Z",
+      "lastMessageAt": "2026-10-17T23:33:33.514Z",
+      "createRequestId": "d9eaf5c2-e1d4-47db-9194-abafb5125a5d",
+      "nextSequence": 1
+    },
+    {
+      "id": "feea9dba-73f6-4f24-bfc3-c1932edf1379",
+      "title": "Proposta financeira",
+      "createdAt": "2026-10-18T00:24:14.836Z",
+      "updatedAt": "2026-10-18T00:24:15.016Z",
+      "lastMessageAt": "2026-10-18T00:24:15.016Z",
+      "createRequestId": "b7993356-602e-4b12-8a2f-ae4ed4499a77",
+      "nextSequence": 3
+    },
+    {
+      "id": "321c34db-afa4-411c-97e7-77fb98f37f51",
+      "title": "Proposta financeira",
+      "createdAt": "2026-10-18T00:27:59.804Z",
+      "updatedAt": "2026-10-18T00:28:00.045Z",
+      "lastMessageAt": "2026-10-18T00:28:00.045Z",
+      "createRequestId": "32284878-c1a3-4701-8ed6-ea20996b4485",
+      "nextSequence": 3
+    }
+  ],
+  "messages": [
+    {
+      "id": "3cfe9ebc-98a4-4473-95ce-9148eba5277f",
+      "conversationId": "eeb55249-2b6c-4e0c-9039-45400f927600",
+      "sequence": 1,
+      "clientMessageId": "6a0524aa-4405-42f4-ba7f-61ffda3ecc50",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "O que vence esta semana?",
+      "status": "completed",
+      "createdAt": "2026-10-16T01:02:01.665Z",
+      "responseLevel": "iniciante"
+    },
+    {
+      "id": "a0fd7d93-8eeb-4395-b816-df712fd914e2",
+      "conversationId": "eeb55249-2b6c-4e0c-9039-45400f927600",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "3cfe9ebc-98a4-4473-95ce-9148eba5277f",
+      "role": "assistant",
+      "content": "Não consigo confirmar com segurança os valores ou datas específicos desta resposta. Consulte as fontes e limitações abaixo ou reformule a pergunta com o título, conta ou período desejado.",
+      "status": "completed",
+      "createdAt": "2026-10-16T01:02:06.068Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-15",
+        "selection": {
+          "topic": "cash",
+          "timeWindow": "week",
+          "period": "2026-10",
+          "fromDate": "2026-10-12",
+          "toDate": "2026-10-18",
+          "horizonDays": 30,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A integração identifica esta base como perfil de demonstração (demoProfile); os dados e conclusões refletem esse perfil.",
+          "A resposta gerada continha um valor em reais ou uma data completa sem correspondência no contexto financeiro atual; o texto foi substituído por uma explicação limitada."
+        ],
+        "responseLevel": "iniciante",
+        "sources": [
+          {
+            "code": "dashboard",
+            "period": null,
+            "fromDate": "2026-10-15",
+            "toDate": "2026-10-15",
+            "referenceIds": []
+          },
+          {
+            "code": "financial-analysis",
+            "period": "2026-10",
+            "fromDate": "2026-10-01",
+            "toDate": "2026-10-31",
+            "referenceIds": []
+          },
+          {
+            "code": "cash-flow",
+            "period": null,
+            "fromDate": "2026-10-12",
+            "toDate": "2026-10-18",
+            "referenceIds": []
+          },
+          {
+            "code": "payables",
+            "period": null,
+            "fromDate": "2026-10-12",
+            "toDate": "2026-10-18",
+            "referenceIds": []
+          },
+          {
+            "code": "receivables",
+            "period": null,
+            "fromDate": "2026-10-12",
+            "toDate": "2026-10-18",
+            "referenceIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "3afc0732-7ae2-4ce2-960f-d0651269e0dc",
+      "conversationId": "eeb55249-2b6c-4e0c-9039-45400f927600",
+      "sequence": 3,
+      "clientMessageId": "c21fb0b3-de4e-46be-997a-1453ebc1c221",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "E quais dados sustentam essa resposta?",
+      "status": "completed",
+      "createdAt": "2026-10-16T01:02:32.896Z",
+      "responseLevel": "iniciante"
+    },
+    {
+      "id": "593dbe43-b64c-4531-b154-62af4fa2f57e",
+      "conversationId": "eeb55249-2b6c-4e0c-9039-45400f927600",
+      "sequence": 4,
+      "clientMessageId": null,
+      "replyToMessageId": "3afc0732-7ae2-4ce2-960f-d0651269e0dc",
+      "role": "assistant",
+      "content": "Não consigo confirmar com segurança os valores ou datas específicos desta resposta. Consulte as fontes e limitações abaixo ou reformule a pergunta com o título, conta ou período desejado.",
+      "status": "completed",
+      "createdAt": "2026-10-16T01:02:36.797Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-15",
+        "selection": {
+          "topic": "overview",
+          "timeWindow": "current",
+          "period": "2026-10",
+          "fromDate": "2026-10-15",
+          "toDate": "2026-10-15",
+          "horizonDays": 30,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A integração identifica esta base como perfil de demonstração (demoProfile); os dados e conclusões refletem esse perfil.",
+          "A resposta gerada continha um valor em reais ou uma data completa sem correspondência no contexto financeiro atual; o texto foi substituído por uma explicação limitada."
+        ],
+        "responseLevel": "iniciante",
+        "sources": [
+          {
+            "code": "dashboard",
+            "period": null,
+            "fromDate": "2026-10-15",
+            "toDate": "2026-10-15",
+            "referenceIds": []
+          },
+          {
+            "code": "financial-analysis",
+            "period": "2026-10",
+            "fromDate": "2026-10-01",
+            "toDate": "2026-10-31",
+            "referenceIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "2778de39-2526-408d-b53f-506b8c9d16bd",
+      "conversationId": "eeb55249-2b6c-4e0c-9039-45400f927600",
+      "sequence": 5,
+      "clientMessageId": "fb9c7f5a-04f5-4de0-aade-455af4f8361a",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "E quais dados sustentam essa resposta?",
+      "status": "completed",
+      "createdAt": "2026-10-16T09:51:54.629Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "eca19ebc-fa1e-4060-9424-9e3f6f9a20d1",
+      "conversationId": "eeb55249-2b6c-4e0c-9039-45400f927600",
+      "sequence": 6,
+      "clientMessageId": null,
+      "replyToMessageId": "2778de39-2526-408d-b53f-506b8c9d16bd",
+      "role": "assistant",
+      "content": "A resposta anterior foi uma negativa de confirmação, e ela se sustenta no que o contexto atual efetivamente traz — e no que ele não traz.\n\n**Fontes disponíveis no contexto**\n- `financial-reports.getDashboard`, com data de referência 2026-10-16.\n- `financial-reports.getFinancialAnalysis`, com período de competência 2026-10, corte em 2026-10-31.\n\n**O que essas fontes informam (visão geral, não agenda de vencimentos)**\n- Caixa disponível: R$ 8.447,85 (844785 centavos), em 2026-10-16.\n- Projeção de fechamento: R$ 10.082,95 (1008295 centavos); cenário alternativo: R$ 9.382,95 (938295 centavos); mínimo projetado de R$ 8.387,95 (838795 centavos) em 2026-10-20; sem primeira data negativa.\n- Contas a pagar em aberto: R$ 1.044,90 (104490 centavos); vencidas: R$ 0,00.\n- Contas a receber em aberto: R$ 1.980,00 (198000 centavos); vencidas: R$ 0,00.\n- Fluxo de caixa do período de 2026-10-01 a 2026-10-16: recebimentos operacionais realizados de R$ 3.928,50 (392850 centavos); pagamentos operacionais realizados de R$ 1.980,65 (198065 centavos); outras entradas de caixa de R$ 7.500,00 (750000 centavos); outras saídas de caixa de R$ 1.000,00 (100000 centavos); recebimentos projetados de R$ 1.980,00 (198000 centavos); pagamentos projetados de R$ 344,90 (34490 centavos).\n- Competência 2026-10 (corte 2026-10-31): receita de R$ 5.908,50 (590850 centavos); custos de R$ 500,00 (50000 centavos); despesas de R$ 1.825,55 (182555 centavos); resultado econômico de R$ 3.582,95 (358295 centavos). Balanço: ativos R$ 11.127,85; passivos R$ 2.544,90; patrimônio líquido R$ 8.582,95; caixa e equivalentes R$ 8.447,85; liquidez corrente 30,2344; liquidez imediata 24,4936; liquidez geral 4,0975.\n- Integridade contábil: válida, com débitos e créditos de R$ 0,00 e diferença de R$ 0,00, sem ocorrências registradas.\n\n**Por que isso não responde \"o que vence esta semana\"**\nO contexto não traz uma lista de títulos com datas de vencimento individuais. Ele informa apenas totais agregados de contas a pagar em aberto e vencidas, sem detalhar quais títulos vencem em cada dia. Também não há recorte semanal explícito: a janela informada é de 2026-10-16 a 2026-10-16, com horizonte de 30 dias, e o período de competência é o mês de 2026-10. Portanto, não há evidência no contexto para afirmar quais títulos vencem nesta semana, nem seus valores ou datas.\n\n**Limitação relevante**\nA própria base é identificada como perfil de demonstração (demoProfile), ou seja, os dados e conclusões refletem esse perfil.\n\n**Para obter essa informação**\nSeria necessário consultar um relatório de contas a pagar com detalhamento por título e data de vencimento, filtrado pelo intervalo da semana desejada. Com o contexto atual, isso não está disponível.",
+      "status": "completed",
+      "createdAt": "2026-10-16T09:51:59.993Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-16",
+        "selection": {
+          "topic": "overview",
+          "timeWindow": "current",
+          "period": "2026-10",
+          "fromDate": "2026-10-16",
+          "toDate": "2026-10-16",
+          "horizonDays": 30,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A integração identifica esta base como perfil de demonstração (demoProfile); os dados e conclusões refletem esse perfil."
+        ],
+        "responseLevel": "intermediario",
+        "sources": [
+          {
+            "code": "dashboard",
+            "period": null,
+            "fromDate": "2026-10-16",
+            "toDate": "2026-10-16",
+            "referenceIds": []
+          },
+          {
+            "code": "financial-analysis",
+            "period": "2026-10",
+            "fromDate": "2026-10-01",
+            "toDate": "2026-10-31",
+            "referenceIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "cc25a68c-7cb5-453a-81be-311489bbca47",
+      "conversationId": "936c6f52-0865-48d3-8cbc-5253610edcdb",
+      "sequence": 1,
+      "clientMessageId": "46a70ded-34fe-46e1-b7b1-8142950dcdc8",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "Lance uma conta a pagar para internet de R$ 200 com vencimento dia 20?",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:46:27.619Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "a8ebb397-9754-4a5c-84b0-54fa958cc6ab",
+      "conversationId": "936c6f52-0865-48d3-8cbc-5253610edcdb",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "cc25a68c-7cb5-453a-81be-311489bbca47",
+      "role": "assistant",
+      "content": "Nesta fase, o Agente só prepara rascunhos de contas a pagar e a receber. Reconhecimento, lançamento contábil, pagamento, recebimento e baixa continuam sendo ações separadas no Fin180.",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:46:27.692Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-16",
+        "selection": {
+          "topic": "action-draft",
+          "timeWindow": "current",
+          "period": null,
+          "fromDate": "2026-10-16",
+          "toDate": "2026-10-16",
+          "horizonDays": 1,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A extração não autorizou ações financeiras além de preparar um rascunho revisável."
+        ],
+        "responseLevel": "intermediario",
+        "sources": []
+      }
+    },
+    {
+      "id": "dea456a0-c6fb-49a3-95a5-5adf50975345",
+      "conversationId": "548c8872-34c0-4ae4-8b74-ae8d35b357cb",
+      "sequence": 1,
+      "clientMessageId": "4c887dd6-2b5f-4f5e-9805-62540c164504",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "Lance uma conta a pagar para internet de R$ 200 com vencimento dia 20?",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:51:08.378Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "a7b69b2c-3c13-46dd-9ef3-66bffcf44e0a",
+      "conversationId": "548c8872-34c0-4ae4-8b74-ae8d35b357cb",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "dea456a0-c6fb-49a3-95a5-5adf50975345",
+      "role": "assistant",
+      "content": "Nesta fase, o Agente só prepara rascunhos de contas a pagar e a receber. Reconhecimento, lançamento contábil, pagamento, recebimento e baixa continuam sendo ações separadas no Fin180.",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:51:08.473Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-16",
+        "selection": {
+          "topic": "action-draft",
+          "timeWindow": "current",
+          "period": null,
+          "fromDate": "2026-10-16",
+          "toDate": "2026-10-16",
+          "horizonDays": 1,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A extração não autorizou ações financeiras além de preparar um rascunho revisável."
+        ],
+        "responseLevel": "intermediario",
+        "sources": []
+      }
+    },
+    {
+      "id": "118aeb6c-8983-4c8c-8ab5-926ae552a822",
+      "conversationId": "903b1380-2537-4a25-bed3-eda82414f13d",
+      "sequence": 1,
+      "clientMessageId": "d3c8cd44-11aa-4798-9974-85419fc99224",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "Lance uma conta a pagar para internet de R$ 200 com vencimento dia 20?",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:54:39.244Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "4ab1d6c9-edeb-4424-b790-d7f73fa2c687",
+      "conversationId": "903b1380-2537-4a25-bed3-eda82414f13d",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "118aeb6c-8983-4c8c-8ab5-926ae552a822",
+      "role": "assistant",
+      "content": "Nesta fase, o Agente só prepara rascunhos de contas a pagar e a receber. Reconhecimento, lançamento contábil, pagamento, recebimento e baixa continuam sendo ações separadas no Fin180.",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:54:39.339Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-16",
+        "selection": {
+          "topic": "action-draft",
+          "timeWindow": "current",
+          "period": null,
+          "fromDate": "2026-10-16",
+          "toDate": "2026-10-16",
+          "horizonDays": 1,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A extração não autorizou ações financeiras além de preparar um rascunho revisável."
+        ],
+        "responseLevel": "intermediario",
+        "sources": []
+      }
+    },
+    {
+      "id": "69cc7331-a0ad-4e1a-aea1-77eff3c6ee6a",
+      "conversationId": "5bc405f0-b985-407a-8bd7-2140cced751c",
+      "sequence": 1,
+      "clientMessageId": "e8c32c4a-a9f4-4051-a698-1840bd651752",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "Lance uma conta a pagar para internet de R$ 200 com vencimento dia 20?",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:54:47.777Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "fdf368cb-b9bd-4f1e-9e34-4489525e2bf3",
+      "conversationId": "5bc405f0-b985-407a-8bd7-2140cced751c",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "69cc7331-a0ad-4e1a-aea1-77eff3c6ee6a",
+      "role": "assistant",
+      "content": "Nesta fase, o Agente só prepara rascunhos de contas a pagar e a receber. Reconhecimento, lançamento contábil, pagamento, recebimento e baixa continuam sendo ações separadas no Fin180.",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:54:47.855Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-16",
+        "selection": {
+          "topic": "action-draft",
+          "timeWindow": "current",
+          "period": null,
+          "fromDate": "2026-10-16",
+          "toDate": "2026-10-16",
+          "horizonDays": 1,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A extração não autorizou ações financeiras além de preparar um rascunho revisável."
+        ],
+        "responseLevel": "intermediario",
+        "sources": []
+      }
+    },
+    {
+      "id": "bec62151-1499-4c42-b3b2-3a98c52cbdb3",
+      "conversationId": "316eb7fc-a03e-4f20-8ff1-2b9321c29f98",
+      "sequence": 1,
+      "clientMessageId": "d84a7974-e82a-46b3-96dd-9ee8bacbf6f5",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "Lance uma conta a pagar para internet de R$ 200 com vencimento dia 20?",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:58:03.242Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "86b68328-38df-4ff7-b499-f8d536b59702",
+      "conversationId": "316eb7fc-a03e-4f20-8ff1-2b9321c29f98",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "bec62151-1499-4c42-b3b2-3a98c52cbdb3",
+      "role": "assistant",
+      "content": "Nesta fase, o Agente só prepara rascunhos de contas a pagar e a receber. Reconhecimento, lançamento contábil, pagamento, recebimento e baixa continuam sendo ações separadas no Fin180.",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:58:03.328Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-16",
+        "selection": {
+          "topic": "action-draft",
+          "timeWindow": "current",
+          "period": null,
+          "fromDate": "2026-10-16",
+          "toDate": "2026-10-16",
+          "horizonDays": 1,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A extração não autorizou ações financeiras além de preparar um rascunho revisável."
+        ],
+        "responseLevel": "intermediario",
+        "sources": []
+      }
+    },
+    {
+      "id": "76612759-8035-494e-a1e5-b513c300e64b",
+      "conversationId": "890f400f-1c6e-403b-a423-a8bb16bbcb92",
+      "sequence": 1,
+      "clientMessageId": "cd87e8c5-47ac-4807-aa4e-ed27adc0d5a3",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "Lance uma conta a pagar para internet de R$ 200 com vencimento dia 20?",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:58:25.603Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "08acfcaf-6627-4efd-b176-9a148f3d4757",
+      "conversationId": "890f400f-1c6e-403b-a423-a8bb16bbcb92",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "76612759-8035-494e-a1e5-b513c300e64b",
+      "role": "assistant",
+      "content": "Nesta fase, o Agente só prepara rascunhos de contas a pagar e a receber. Reconhecimento, lançamento contábil, pagamento, recebimento e baixa continuam sendo ações separadas no Fin180.",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:58:29.710Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-16",
+        "selection": {
+          "topic": "action-draft",
+          "timeWindow": "current",
+          "period": null,
+          "fromDate": "2026-10-16",
+          "toDate": "2026-10-16",
+          "horizonDays": 1,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A extração não autorizou ações financeiras além de preparar um rascunho revisável."
+        ],
+        "responseLevel": "intermediario",
+        "sources": []
+      }
+    },
+    {
+      "id": "444cbe8c-04b2-4419-9c14-8faca6a74db2",
+      "conversationId": "1a2501a8-678a-4598-a926-58a3c84bd7f4",
+      "sequence": 1,
+      "clientMessageId": "092ea569-f8a2-4b0e-bec3-7699ad894d35",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "Lance uma conta a pagar para internet de R$ 200 com vencimento dia 20?",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:59:14.464Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "0638e453-a1b0-45c5-bec3-91b1983a598e",
+      "conversationId": "1a2501a8-678a-4598-a926-58a3c84bd7f4",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "444cbe8c-04b2-4419-9c14-8faca6a74db2",
+      "role": "assistant",
+      "content": "Nesta fase, o Agente só prepara rascunhos de contas a pagar e a receber. Reconhecimento, lançamento contábil, pagamento, recebimento e baixa continuam sendo ações separadas no Fin180.",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:59:14.531Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-16",
+        "selection": {
+          "topic": "action-draft",
+          "timeWindow": "current",
+          "period": null,
+          "fromDate": "2026-10-16",
+          "toDate": "2026-10-16",
+          "horizonDays": 1,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A extração não autorizou ações financeiras além de preparar um rascunho revisável."
+        ],
+        "responseLevel": "intermediario",
+        "sources": []
+      }
+    },
+    {
+      "id": "9989b40d-daea-4b10-9143-8cf50e202057",
+      "conversationId": "3575af73-8e62-4579-83d2-4cb7e63deadb",
+      "sequence": 1,
+      "clientMessageId": "597e0f60-4998-46ba-9028-3a4a3544833c",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "Lance uma conta a pagar para internet de R$ 200 com vencimento dia 20?",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:59:18.709Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "91bf9611-2aee-4feb-b1c0-be703d0a6542",
+      "conversationId": "3575af73-8e62-4579-83d2-4cb7e63deadb",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "9989b40d-daea-4b10-9143-8cf50e202057",
+      "role": "assistant",
+      "content": "Nesta fase, o Agente só prepara rascunhos de contas a pagar e a receber. Reconhecimento, lançamento contábil, pagamento, recebimento e baixa continuam sendo ações separadas no Fin180.",
+      "status": "completed",
+      "createdAt": "2026-10-16T21:59:18.774Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-16",
+        "selection": {
+          "topic": "action-draft",
+          "timeWindow": "current",
+          "period": null,
+          "fromDate": "2026-10-16",
+          "toDate": "2026-10-16",
+          "horizonDays": 1,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A extração não autorizou ações financeiras além de preparar um rascunho revisável."
+        ],
+        "responseLevel": "intermediario",
+        "sources": []
+      }
+    },
+    {
+      "id": "4e67cfe0-c82b-4498-8d2f-6f6dd22d314e",
+      "conversationId": "320c4041-f967-463a-b746-e8dfb382cf97",
+      "sequence": 1,
+      "clientMessageId": "b2cf7708-a53a-4db3-bbd7-e4f4830620a5",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "Lance uma conta a pagar para internet de R$ 200 com vencimento dia 20?",
+      "status": "completed",
+      "createdAt": "2026-10-16T22:00:51.763Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "d9565c74-8260-4974-9aea-3cb52d2313c3",
+      "conversationId": "320c4041-f967-463a-b746-e8dfb382cf97",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "4e67cfe0-c82b-4498-8d2f-6f6dd22d314e",
+      "role": "assistant",
+      "content": "Nesta fase, o Agente só prepara rascunhos de contas a pagar e a receber. Reconhecimento, lançamento contábil, pagamento, recebimento e baixa continuam sendo ações separadas no Fin180.",
+      "status": "completed",
+      "createdAt": "2026-10-16T22:00:51.838Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-16",
+        "selection": {
+          "topic": "action-draft",
+          "timeWindow": "current",
+          "period": null,
+          "fromDate": "2026-10-16",
+          "toDate": "2026-10-16",
+          "horizonDays": 1,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A extração não autorizou ações financeiras além de preparar um rascunho revisável."
+        ],
+        "responseLevel": "intermediario",
+        "sources": []
+      }
+    },
+    {
+      "id": "6a12bd04-1b6e-4cd0-ace3-5914145e16eb",
+      "conversationId": "56ffcffd-5b01-469c-9f29-5091e0a07bfc",
+      "sequence": 1,
+      "clientMessageId": "20f5430b-43af-4d02-b4cb-5eb23c53b033",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "Lance uma conta a pagar para internet de R$ 200 com vencimento dia 20?",
+      "status": "completed",
+      "createdAt": "2026-10-16T22:02:13.845Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "61ff22dc-c9fe-4679-9060-acc412a98395",
+      "conversationId": "56ffcffd-5b01-469c-9f29-5091e0a07bfc",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "6a12bd04-1b6e-4cd0-ace3-5914145e16eb",
+      "role": "assistant",
+      "content": "Nesta fase, o Agente só prepara rascunhos de contas a pagar e a receber. Reconhecimento, lançamento contábil, pagamento, recebimento e baixa continuam sendo ações separadas no Fin180.",
+      "status": "completed",
+      "createdAt": "2026-10-16T22:02:13.902Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-16",
+        "selection": {
+          "topic": "action-draft",
+          "timeWindow": "current",
+          "period": null,
+          "fromDate": "2026-10-16",
+          "toDate": "2026-10-16",
+          "horizonDays": 1,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A extração não autorizou ações financeiras além de preparar um rascunho revisável."
+        ],
+        "responseLevel": "intermediario",
+        "sources": []
+      }
+    },
+    {
+      "id": "50eb3c8f-c843-414b-b706-c66bf0db3a34",
+      "conversationId": "feea9dba-73f6-4f24-bfc3-c1932edf1379",
+      "sequence": 1,
+      "clientMessageId": "b6104177-df5b-4f69-af55-64b4405f5e58",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "Lance uma conta a pagar para internet de R$ 200 com vencimento dia 20?",
+      "status": "completed",
+      "createdAt": "2026-10-18T00:24:14.942Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "e92de10f-8ceb-42a9-acbc-36145d08a5f3",
+      "conversationId": "feea9dba-73f6-4f24-bfc3-c1932edf1379",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "50eb3c8f-c843-414b-b706-c66bf0db3a34",
+      "role": "assistant",
+      "content": "Nesta fase, o Agente só prepara rascunhos de contas a pagar e a receber. Reconhecimento, lançamento contábil, pagamento, recebimento e baixa continuam sendo ações separadas no Fin180.",
+      "status": "completed",
+      "createdAt": "2026-10-18T00:24:15.016Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-17",
+        "selection": {
+          "topic": "action-draft",
+          "timeWindow": "current",
+          "period": null,
+          "fromDate": "2026-10-17",
+          "toDate": "2026-10-17",
+          "horizonDays": 1,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A extração não autorizou ações financeiras além de preparar um rascunho revisável."
+        ],
+        "responseLevel": "intermediario",
+        "sources": []
+      }
+    },
+    {
+      "id": "86c7e85c-72d4-47de-b5b3-ae20359db5ff",
+      "conversationId": "321c34db-afa4-411c-97e7-77fb98f37f51",
+      "sequence": 1,
+      "clientMessageId": "73c8934e-c218-49ee-878b-400cfebb8cd5",
+      "replyToMessageId": null,
+      "role": "user",
+      "content": "Lance uma conta a pagar para internet de R$ 200 com vencimento dia 20?",
+      "status": "completed",
+      "createdAt": "2026-10-18T00:27:59.924Z",
+      "responseLevel": "intermediario"
+    },
+    {
+      "id": "9f7b4202-357c-46b0-bf12-0f518dfe752f",
+      "conversationId": "321c34db-afa4-411c-97e7-77fb98f37f51",
+      "sequence": 2,
+      "clientMessageId": null,
+      "replyToMessageId": "86c7e85c-72d4-47de-b5b3-ae20359db5ff",
+      "role": "assistant",
+      "content": "Nesta fase, o Agente só prepara rascunhos de contas a pagar e a receber. Reconhecimento, lançamento contábil, pagamento, recebimento e baixa continuam sendo ações separadas no Fin180.",
+      "status": "completed",
+      "createdAt": "2026-10-18T00:28:00.045Z",
+      "responseMetadata": {
+        "referenceDate": "2026-10-17",
+        "selection": {
+          "topic": "action-draft",
+          "timeWindow": "current",
+          "period": null,
+          "fromDate": "2026-10-17",
+          "toDate": "2026-10-17",
+          "horizonDays": 1,
+          "comparison": false,
+          "accountIds": [],
+          "costCenterId": null
+        },
+        "limitations": [
+          "A extração não autorizou ações financeiras além de preparar um rascunho revisável."
+        ],
+        "responseLevel": "intermediario",
+        "sources": []
+      }
+    }
+  ]
+}

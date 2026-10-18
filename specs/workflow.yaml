@@ -1,0 +1,388 @@
+schema_version: 1
+project_name: ArqCalc
+workflow_id: arqcalc
+legacy_workflow_ids:
+  - landing-page
+description: Fluxo agnóstico ao tipo de software que entrega o ArqCalc em ciclos completos de um incremento de produto por vez.
+state: INITIALIZED
+current_stage_id: requirements-discovery
+initialization:
+  bootstrap_path: specs/INIT.md
+  stage_1_status: NOT_STARTED
+  subsequent_stage_status: PENDING
+  product_specifications_approved: none
+  approval_gates: NOT_GRANTED
+
+stage_status_values:
+  - NOT_STARTED
+  - IN_PROGRESS
+  - WAITING_FOR_USER
+  - COMPLETED
+  - PENDING
+  - BLOCKED
+
+stage_status_transitions:
+  current_stage_changes_only_after_recorded_transition: true
+  allowed:
+    - from: NOT_STARTED
+      to: IN_PROGRESS
+      when: User requests the current stage to begin.
+    - from: PENDING
+      to: IN_PROGRESS
+      when: Preceding stage is completed, dependencies are met, and the user explicitly authorizes this stage.
+    - from: IN_PROGRESS
+      to: WAITING_FOR_USER
+      when: Current-stage deliverable is presented for review or direction.
+    - from: WAITING_FOR_USER
+      to: IN_PROGRESS
+      when: User requests changes within the current stage.
+    - from: WAITING_FOR_USER
+      to: COMPLETED
+      when: Stage deliverable is accepted and the required gate evidence is recorded.
+
+specification_lifecycle:
+  allowed_states:
+    - DRAFT
+    - IN_REVIEW
+    - APPROVED
+  approval_transition:
+    from: IN_REVIEW
+    to: APPROVED
+    evidence_required:
+      - explicit_user_decision_for_exact_spec_id_and_version
+      - timestamp_with_timezone
+      - approval_evidence_reference
+      - matching_DEC_record
+    status_alone_is_sufficient: false
+
+approval_policy:
+  approver: human_user
+  stage_transition_requires_explicit_human_authorization: true
+  silence_or_ambiguous_response_grants_approval: false
+  agent_can_approve_for_user: false
+  every_gate_starts_as: NOT_GRANTED
+  required_evidence:
+    - completed_stage_deliverables
+    - explicit_user_decision_for_the_transition
+    - matching_reference_in_docs/decision-log.md
+  do_not_update_gate_without_verifiable_evidence: true
+
+traceability_policy:
+  originating_spec_reference_required_for_every_derived_artifact: true
+  reference_format: SPEC-NNN@MAJOR.MINOR.PATCH
+  first_product_spec_is_its_own_origin: true
+  create_one_spec_per_user_defined_product_increment: true
+  do_not_create_a_spec_per_operational_workflow_stage: true
+
+product_increment_policy:
+  specification_granularity: one_spec_per_user_defined_product_increment
+  execution_model: one_increment_per_full_cycle
+  allow_increment_dependencies: true
+  derive_increment_boundaries_from_user_only: true
+  split_combined_scope_without_user_confirmation: false
+  approval_required_for_each_increment_spec: true
+  require_all_declared_increment_specs_approved_before_planning: false
+  require_user_confirmation_that_increment_list_is_complete: false
+  implementation_order: user_defined_sequential_cycles
+  collect_one_increment_at_a_time: true
+  complete_requirements_planning_design_development_qa_review_and_delivery_before_next_increment: true
+  next_increment_command: 'python -m orchestrator discover --new-increment --name "Nome do próximo incremento"'
+  downstream_work_items_reference_their_increment_spec: true
+  plan_task_and_contract_paths_partitioned_by_spec: true
+  preserve_accepted_increment_artifacts: true
+
+increment_cycle_policy:
+  active_increment_limit: 1
+  cycle_stages: [requirements-discovery, planning, ux-ui-design, development, qa, technical-review-approval, deployment]
+  cycle_completion_stage: deployment
+  next_increment_requires_previous_cycle_completed: true
+  next_increment_requires_explicit_user_command: true
+  delivery_default: local_package_or_handoff
+  production_requires_separate_scope_version_and_user_authorization: true
+  carry_forward_only_confirmed_interfaces_and_dependencies: true
+
+clarification_rules:
+  ask_only_for_required_unconfirmed_information: true
+  never_infer_user_decisions: true
+  preserve_unanswered_items_as_open_questions: true
+  minimum_confirmed_fields:
+    - objective
+    - scope
+    - functional_requirement
+  question_prompts:
+    objective: "Qual problema ou necessidade o produto deve atender e qual resultado deve produzir?"
+    scope: "O que precisa estar incluído no escopo inicial?"
+    functional_requirement: "Qual comportamento observável você espera?"
+    audience: "Quem usará ou será afetado pelo produto?"
+    constraints: "Há alguma restrição confirmada de negócio, tecnologia, prazo ou operação?"
+    acceptance_criteria: "Como você reconhecerá que o resultado atende à necessidade?"
+    product_form: "Você já imagina uma forma de produto (por exemplo aplicação web, serviço/API, automação ou agente com RAG), ou prefere decidir depois?"
+    technology_preferences: "Há tecnologias que deseja considerar como preferência ou restrição, ou isso deve ficar para o Planejamento?"
+    ai_relevance: "Há uma necessidade confirmada de IA, agente ou RAG? Se sim, qual comportamento ela deve atender?"
+    increment_dependencies: "Este incremento depende de outro incremento? Informe as specs/etapas relacionadas já confirmadas ou diga que não há dependência conhecida."
+  optional_fields:
+    - audience
+    - constraints
+    - acceptance_criteria
+    - product_form
+    - technology_preferences
+    - ai_relevance
+    - increment_dependencies
+  spec_template: specs/templates/SPEC-TEMPLATE.md
+  spec_output_directory: specs/generated/
+  increment_specification_mode: user_defined_product_increment
+
+stages:
+  - id: requirements-discovery
+    order: 1
+    name: Levantamento de requisitos
+    status: NOT_STARTED
+    agents:
+      - product_owner
+      - analista_requisitos
+    skill: .agents/skills/requirements-discovery/SKILL.md
+    inputs:
+      - AGENTS.md
+      - plans/FLUXO-PROJETO-SOFTWARE.md
+      - docs/
+      - specs/INIT.md
+      - specs/workflow.yaml
+    deliverables:
+      - id: product-specification
+        description: Spec completa e rastreável do único incremento atualmente ativo, com objetivo, escopo, requisitos, dependências, critérios e perguntas abertas.
+        location: specs/generated/
+        originating_spec: current_increment
+    increment_capture:
+      repeat_until_user_confirms_complete: false
+      each_increment_requires_its_own_spec: true
+      each_increment_requires_separate_explicit_approval: true
+      next_increment_starts_only_after_current_cycle_completion: true
+      process_stages_do_not_create_product_specs: true
+    depends_on: []
+    approval_gate:
+      applies_before: next_stage
+      status: NOT_GRANTED
+      evidence_ref: null
+      requires:
+        - current_increment_has_its_own_complete_specification
+        - current_increment_specification_approved_for_exact_version_and_hash
+        - explicit_user_authorization_to_start_planning
+        - matching_decision_log_entry
+
+  - id: planning
+    order: 2
+    name: Planejamento e arquitetura
+    status: PENDING
+    agents:
+      - tech_lead
+    additional_agents:
+      - software_developer
+      - backend_developer
+      - ai_engineer
+      - agentic_developer
+      - data_engineer
+    skill: .agents/skills/plan-software-project/SKILL.md
+    inputs:
+      - approved_current_increment_specification
+      - confirmed_dependencies_on_accepted_prior_increments
+      - current_repository_and_technology_inventory
+    deliverables:
+      - id: implementation-plan
+        description: Arquitetura proporcional ao incremento atual, alternativas relevantes, tarefas, prioridades, dependências e sequência.
+        location: plans/increments/<SPEC-ID>/
+        originating_spec_reference_required: true
+      - id: work-items
+        description: Tarefas rastreáveis do incremento atual e responsáveis escolhidos conforme o escopo.
+        location: tasks/<SPEC-ID>/
+        originating_spec_reference_required: true
+      - id: contract-assessment
+        description: Avaliação do Tech Lead por especificação/tarefa, com justificativa para contratos necessários ou dispensados.
+        location: plans/increments/<SPEC-ID>/contract-assessment.yaml
+        originating_spec_reference_required: true
+    depends_on:
+      - requirements-discovery
+    approval_gate:
+      applies_before: next_stage
+      status: NOT_GRANTED
+      evidence_ref: null
+      requires:
+        - plan_tasks_and_architecture_presented
+        - contract_assessment_presented
+        - explicit_user_authorization_to_start_solution_design
+        - matching_decision_log_entry
+
+  - id: ux-ui-design
+    order: 3
+    name: Desenho da solução
+    status: PENDING
+    agents:
+      - tech_lead
+    additional_agents:
+      - ux_designer
+      - ui_designer
+      - backend_developer
+      - ai_engineer
+      - agentic_developer
+      - data_engineer
+    skill: .agents/skills/design-software-solution/SKILL.md
+    inputs:
+      - approved_current_increment_specification
+      - approved_implementation_plan
+      - approved_contract_assessment
+    deliverables:
+      - id: solution-design
+        description: Desenho proporcional do sistema, dados, interfaces, agentes/RAG e UX/UI quando aplicáveis.
+        location: plans/ ou destino de design escolhido no planejamento.
+        originating_spec_reference_required: true
+    depends_on:
+      - planning
+    approval_gate:
+      applies_before: next_stage
+      status: NOT_GRANTED
+      evidence_ref: null
+      requires:
+        - applicable_solution_design_presented
+        - explicit_user_authorization_to_start_development
+        - matching_decision_log_entry
+
+  - id: development
+    order: 4
+    name: Desenvolvimento
+    status: PENDING
+    agents:
+      - software_developer
+    additional_agents:
+      - desenvolvedor_frontend
+      - backend_developer
+      - ai_engineer
+      - agentic_developer
+      - data_engineer
+    skill: .agents/skills/implement-feature/SKILL.md
+    inputs:
+      - approved_current_increment_specification
+      - approved_implementation_plan
+      - approved_solution_design
+    deliverables:
+      - id: implementation
+        description: Código e artefatos do produto implementados conforme o escopo aprovado.
+        location: src/ e arquivos relacionados.
+        originating_spec_reference_required: true
+      - id: local-verification-summary
+        description: Resumo das verificações locais realmente executadas.
+        location: Registro relacionado à tarefa em tasks/ ou docs/.
+        originating_spec_reference_required: true
+    depends_on:
+      - ux-ui-design
+    approval_gate:
+      applies_before: next_stage
+      status: NOT_GRANTED
+      evidence_ref: null
+      requires:
+        - implementation_and_verification_summary_presented
+        - explicit_user_authorization_to_start_qa
+        - matching_decision_log_entry
+
+  - id: qa
+    order: 5
+    name: Testes e QA
+    status: PENDING
+    agents:
+      - qa_tester
+    additional_agents:
+      - backend_developer
+      - ai_engineer
+      - agentic_developer
+      - data_engineer
+    skill: .agents/skills/test-software-project/SKILL.md
+    inputs:
+      - approved_current_increment_specification
+      - implementation
+      - acceptance_criteria
+    deliverables:
+      - id: qa-report
+        description: Resultado por critério, verificações pertinentes, defeitos, evidências e itens não verificados.
+        location: tests/
+        originating_spec_reference_required: true
+    depends_on:
+      - development
+    approval_gate:
+      applies_before: next_stage
+      status: NOT_GRANTED
+      evidence_ref: null
+      requires:
+        - qa_report_presented
+        - explicit_user_authorization_to_start_technical_review
+        - matching_decision_log_entry
+
+  - id: technical-review-approval
+    order: 6
+    name: Revisão e aceite
+    status: PENDING
+    agents:
+      - tech_lead
+      - product_owner
+    skill: .agents/skills/code-review/SKILL.md
+    inputs:
+      - approved_current_increment_specification
+      - implementation
+      - qa_report
+    deliverables:
+      - id: technical-review-and-product-decision
+        description: Parecer técnico e decisão do PO de aceitar ou solicitar ajustes.
+        location: docs/ e referências dos artefatos revisados.
+        originating_spec_reference_required: true
+    depends_on:
+      - qa
+    approval_gate:
+      applies_before: next_stage
+      status: NOT_GRANTED
+      evidence_ref: null
+      requires:
+        - technical_review_record
+        - explicit_product_owner_acceptance
+        - matching_decision_log_entry
+
+  - id: deployment
+    order: 7
+    name: Entrega e publicação
+    status: PENDING
+    agents:
+      - devops
+      - software_developer
+    additional_agents:
+      - backend_developer
+      - ai_engineer
+      - agentic_developer
+      - data_engineer
+    skill: .agents/skills/release-approved/SKILL.md
+    inputs:
+      - approved_current_increment_specification
+      - product_owner_acceptance_from_stage_6
+      - approved_delivery_target
+    deliverables:
+      - id: delivery-record
+        description: Pacote, instruções ou registro de publicação e verificação conforme o destino aprovado.
+        location: docs/ e artefatos indicados no planejamento.
+        originating_spec_reference_required: true
+    depends_on:
+      - technical-review-approval
+    approval_gate:
+      applies_before: execution
+      status: NOT_GRANTED
+      evidence_ref: null
+      requires:
+        - approved_stage_6_product_decision
+        - approved_delivery_target_and_version
+        - explicit_user_authorization_if_production
+        - matching_decision_log_entry
+
+transition_procedure:
+  - Present the completed deliverable for the current stage.
+  - Wait for explicit user direction; do not start another stage automatically.
+  - Verify the exact artifact, decision evidence, and DEC reference before changing a gate.
+  - Production publication requires a separate explicit authorization for the target and version; non-production delivery does not imply production approval.
+  - Update docs/project-context.md, docs/project-roadmap.md, and docs/decision-log.md with project changes.
+  - Create and approve one product specification for the active user-defined increment; keep future increments undefined until the user starts them.
+  - Run Planning, solution design, development, QA, technical review and delivery for the active increment before accepting another increment.
+  - Preserve each increment's plan, tasks, contracts, design, QA evidence and decisions in paths traceable to its originating SPEC ID and version.
+  - Begin the next cycle only after the current cycle is complete and the user explicitly names the next increment.

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arqcalc.local/contracts/handoff.schema.json",
+  "title": "Agent handoff record",
+  "type": "object",
+  "required": ["schema_version", "handoff_id", "task_id", "originating_spec_reference", "from_agent", "to_agent", "contract_refs", "inputs", "outputs", "decisions", "open_questions", "created_at"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "handoff_id": {"type": "string", "minLength": 1},
+    "task_id": {"type": "string", "pattern": "^TASK-[0-9]{3,}$"},
+    "originating_spec_reference": {"type": "string", "pattern": "^SPEC-[0-9]{3,}@[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "from_agent": {"type": "string", "minLength": 1},
+    "to_agent": {"type": "string", "minLength": 1},
+    "contract_refs": {"type": "array", "items": {"$ref": "#/$defs/contractRef"}},
+    "inputs": {"type": "array", "items": {"type": "string"}},
+    "outputs": {"type": "array", "items": {"type": "string"}},
+    "decisions": {"type": "array", "items": {"type": "string"}},
+    "open_questions": {"type": "array", "items": {"type": "string"}},
+    "created_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {
+    "contractRef": {"type": "object", "required": ["contract_id", "version", "content_hash"], "properties": {"contract_id": {"type": "string", "pattern": "^CONTRACT-[0-9]{3,}$"}, "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"}, "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}
+  },
+  "additionalProperties": false
+}

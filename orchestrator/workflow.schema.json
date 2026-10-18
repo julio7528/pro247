@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arqcalc.local/orchestrator/workflow.schema.json",
+  "title": "ArqCalc software project workflow",
+  "type": "object",
+  "required": ["schema_version", "workflow_id", "state", "current_stage_id", "initialization", "stages", "clarification_rules", "product_increment_policy", "increment_cycle_policy"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "project_name": {"type": "string", "minLength": 1},
+    "workflow_id": {"type": "string", "minLength": 1},
+    "legacy_workflow_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "state": {"type": "string", "minLength": 1},
+    "current_stage_id": {"type": "string", "minLength": 1},
+    "initialization": {
+      "type": "object",
+      "required": ["bootstrap_path", "stage_1_status", "subsequent_stage_status", "product_specifications_approved", "approval_gates"],
+      "properties": {
+        "bootstrap_path": {"type": "string", "minLength": 1},
+        "stage_1_status": {"const": "NOT_STARTED"},
+        "subsequent_stage_status": {"const": "PENDING"},
+        "product_specifications_approved": {"const": "none"},
+        "approval_gates": {"const": "NOT_GRANTED"}
+      },
+      "additionalProperties": true
+    },
+    "product_increment_policy": {
+      "type": "object",
+      "required": ["specification_granularity", "execution_model", "allow_increment_dependencies", "derive_increment_boundaries_from_user_only", "approval_required_for_each_increment_spec", "require_all_declared_increment_specs_approved_before_planning", "require_user_confirmation_that_increment_list_is_complete", "implementation_order", "collect_one_increment_at_a_time", "complete_requirements_planning_design_development_qa_review_and_delivery_before_next_increment", "plan_task_and_contract_paths_partitioned_by_spec", "preserve_accepted_increment_artifacts"],
+      "properties": {
+        "specification_granularity": {"const": "one_spec_per_user_defined_product_increment"},
+        "execution_model": {"const": "one_increment_per_full_cycle"},
+        "allow_increment_dependencies": {"const": true},
+        "derive_increment_boundaries_from_user_only": {"const": true},
+        "split_combined_scope_without_user_confirmation": {"const": false},
+        "approval_required_for_each_increment_spec": {"const": true},
+        "require_all_declared_increment_specs_approved_before_planning": {"const": false},
+        "require_user_confirmation_that_increment_list_is_complete": {"const": false},
+        "implementation_order": {"const": "user_defined_sequential_cycles"},
+        "collect_one_increment_at_a_time": {"const": true},
+        "complete_requirements_planning_design_development_qa_review_and_delivery_before_next_increment": {"const": true},
+        "next_increment_command": {"type": "string", "minLength": 1},
+        "downstream_work_items_reference_their_increment_spec": {"const": true},
+        "plan_task_and_contract_paths_partitioned_by_spec": {"const": true},
+        "preserve_accepted_increment_artifacts": {"const": true}
+      },
+      "additionalProperties": true
+    },
+    "increment_cycle_policy": {
+      "type": "object",
+      "required": ["active_increment_limit", "cycle_stages", "cycle_completion_stage", "next_increment_requires_previous_cycle_completed", "next_increment_requires_explicit_user_command", "delivery_default", "production_requires_separate_scope_version_and_user_authorization", "carry_forward_only_confirmed_interfaces_and_dependencies"],
+      "properties": {
+        "active_increment_limit": {"const": 1},
+        "cycle_stages": {"const": ["requirements-discovery", "planning", "ux-ui-design", "development", "qa", "technical-review-approval", "deployment"]},
+        "cycle_completion_stage": {"const": "deployment"},
+        "next_increment_requires_previous_cycle_completed": {"const": true},
+        "next_increment_requires_explicit_user_command": {"const": true},
+        "delivery_default": {"const": "local_package_or_handoff"},
+        "production_requires_separate_scope_version_and_user_authorization": {"const": true},
+        "carry_forward_only_confirmed_interfaces_and_dependencies": {"const": true}
+      },
+      "additionalProperties": true
+    },
+    "clarification_rules": {
+      "type": "object",
+      "required": ["ask_only_for_required_unconfirmed_information", "never_infer_user_decisions", "preserve_unanswered_items_as_open_questions", "minimum_confirmed_fields", "question_prompts", "spec_template", "spec_output_directory", "increment_specification_mode"],
+      "properties": {
+        "ask_only_for_required_unconfirmed_information": {"const": true},
+        "never_infer_user_decisions": {"const": true},
+        "preserve_unanswered_items_as_open_questions": {"const": true},
+        "minimum_confirmed_fields": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "question_prompts": {"type": "object", "additionalProperties": {"type": "string"}},
+        "spec_template": {"type": "string"},
+        "spec_output_directory": {"type": "string"},
+        "increment_specification_mode": {"const": "user_defined_product_increment"}
+      },
+      "additionalProperties": true
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "order", "name", "status", "agents", "skill", "inputs", "deliverables", "depends_on", "approval_gate"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "order": {"type": "integer", "minimum": 1},
+          "name": {"type": "string", "minLength": 1},
+          "status": {"enum": ["NOT_STARTED", "IN_PROGRESS", "WAITING_FOR_USER", "COMPLETED", "PENDING", "BLOCKED"]},
+          "agents": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+          "skill": {"type": "string", "minLength": 1},
+          "inputs": {"type": "array"},
+          "deliverables": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["id", "description", "location"],
+              "properties": {
+                "id": {"type": "string", "minLength": 1},
+                "description": {"type": "string"},
+                "location": {"type": "string"}
+              },
+              "additionalProperties": true
+            }
+          },
+          "increment_capture": {
+            "type": "object",
+            "properties": {
+              "repeat_until_user_confirms_complete": {"const": false},
+              "each_increment_requires_its_own_spec": {"const": true},
+              "each_increment_requires_separate_explicit_approval": {"const": true},
+              "next_increment_starts_only_after_current_cycle_completion": {"const": true},
+              "process_stages_do_not_create_product_specs": {"const": true}
+            },
+            "additionalProperties": true
+          },
+          "depends_on": {"type": "array", "items": {"type": "string"}},
+          "approval_gate": {
+            "type": "object",
+            "required": ["applies_before", "status", "evidence_ref", "requires"],
+            "properties": {
+              "applies_before": {"type": "string"},
+              "status": {"enum": ["NOT_GRANTED", "GRANTED"]},
+              "evidence_ref": {"type": ["string", "null"]},
+              "requires": {"type": "array", "items": {"type": "string"}}
+            },
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

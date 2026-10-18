@@ -1,0 +1,41 @@
+schema_version: 1
+contract_id: CONTRACT-002
+version: 1.0.0
+contract_type: operational_execution_result
+title: Execution result recording
+originating_spec_reference: null
+originating_spec_hash: null
+requirement_ids: []
+task_ids: []
+responsible_agent: codex_executor
+required_inputs: []
+expected_outputs:
+- name: execution_result
+  path: orchestrator-runtime
+  required: true
+  format: json
+  schema_path: ../schemas/execution-result.schema.json
+preconditions:
+- Executor completion or dry-run result has been returned.
+postconditions:
+- Execution result passes the execution-result JSON Schema.
+- Schema validity is recorded separately from functional test status.
+invariants:
+- Schema validity alone never implies functional requirements passed.
+allowed_scope:
+  paths:
+  - .
+  operations:
+  - read
+  - write
+dependencies: []
+validation_rules:
+- id: execution-result-schema
+  kind: schema
+  description: Validate orchestrator execution metadata using the versioned result schema.
+  schema_path: ../schemas/execution-result.schema.json
+approval_required: false
+lifecycle_state: ACTIVE
+missing_fields: []
+content_hash: dc2937bbe9f9c1e5637a8097c1eb8a7e512d930f555e4d189f61e9a613f54aea
+approval_metadata: {}

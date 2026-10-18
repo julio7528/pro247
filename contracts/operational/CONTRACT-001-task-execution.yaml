@@ -1,0 +1,41 @@
+schema_version: 1
+contract_id: CONTRACT-001
+version: 1.0.0
+contract_type: operational_task_execution
+title: Safe task execution context
+originating_spec_reference: null
+originating_spec_hash: null
+requirement_ids: []
+task_ids: []
+responsible_agent: codex_executor
+required_inputs: []
+expected_outputs:
+- name: execution_result
+  path: orchestrator-runtime
+  required: true
+  format: json
+  schema_path: ../schemas/execution-result.schema.json
+preconditions:
+- The caller must pass stage readiness and explicit authorization for real execution.
+- Dry-run remains the default and does not start a process.
+postconditions:
+- The command result and applicable contract references are recorded in SQLite.
+invariants:
+- Real execution remains disabled unless project configuration and explicit CLI flags permit it.
+- Allowed paths describe task scope and are not filesystem isolation.
+allowed_scope:
+  paths:
+  - .
+  operations:
+  - read
+  - write
+dependencies: []
+validation_rules:
+- id: no-real-process-by-default
+  kind: manual
+  description: Preserve dry-run by default and require explicit authorization for real execution.
+approval_required: false
+lifecycle_state: ACTIVE
+missing_fields: []
+content_hash: b2442de67533703cd7128aac1ba1a46d48b72f545f3f2849b9c19d7e7acfef01
+approval_metadata: {}

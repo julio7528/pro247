@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f6f3">
+    <meta name="application-name" content="Pro247">
+    <title>Pro247</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="login-shell" id="login-screen">
+      <form class="login-card" id="login-form">
+        <div class="login-brand"><span class="brand-mark" aria-hidden="true">P</span><span>Pro247</span></div>
+        <p class="eyebrow">ACESSO AO SISTEMA</p>
+        <h1>Entrar</h1>
+        <label>Usuário<input id="login-username" name="username" autocomplete="username" required autofocus></label>
+        <label>Senha<input id="login-password" name="password" type="password" autocomplete="current-password" required></label>
+        <p class="form-error" id="login-error" role="alert" hidden></p>
+        <button class="button button-primary" type="submit">Entrar</button>
+      </form>
+    </main>
+    <main class="workspace" hidden>
+      <header class="app-header">
+        <a class="brand" href="#fluxo" aria-label="Pro247, início">
+          <span class="brand-mark" aria-hidden="true">P</span><span>Pro247</span>
+        </a>
+        <nav class="app-nav" aria-label="Menu principal">
+          <button class="nav-link is-active" data-screen="dashboard" type="button">Dashboard</button>
+          <button class="nav-link" data-screen="financial-analysis" type="button">Análise Financeira</button>
+          <button class="nav-link" data-screen="agent" type="button">Agente</button>
+          <button class="nav-link" data-screen="cashflow" type="button">Fluxo de Caixa</button>
+          <button class="nav-link" data-screen="bank-statements" type="button">Contas Correntes</button>
+          <button class="nav-link" data-screen="journal" type="button">Livro Diário</button>
+          <button class="nav-link" data-screen="payables" type="button">Contas a Pagar</button>
+          <button class="nav-link" data-screen="receivables" type="button">Contas a Receber</button>
+          <button class="nav-link" data-screen="budgets" type="button">Orçamentos</button>
+          <button class="nav-link" data-screen="ledger" type="button">Livro-Razão</button>
+          <button class="nav-link" data-screen="trial-balance" type="button">Balancete</button>
+          <button class="nav-link" data-screen="balance-sheet" type="button">Balanço</button>
+          <button class="nav-link" data-screen="dre" type="button">DRE</button>
+          <button class="nav-link" data-screen="registrations" type="button">Cadastros</button>
+        </nav>
+        <div class="header-actions">
+          <button class="button button-primary" id="primary-action" type="button"><span aria-hidden="true">+</span> Novo lançamento</button>
+          <button class="button button-quiet" id="assistant-open-button" type="button">Assistente</button>
+          <button class="icon-button settings-button" id="deepseek-settings-open" type="button" aria-label="Configurar DeepSeek" title="Configurar DeepSeek">⚙</button>
+          <button class="button button-quiet" id="logout-button" type="button">Sair</button>
+        </div>
+      </header>
+
+      <section class="screen is-visible" id="screen-dashboard" aria-labelledby="dashboard-title">
+        <header class="page-header analytics-header">
+          <div><p class="eyebrow">VISÃO EXECUTIVA</p><h1 id="dashboard-title">Dashboard</h1><p class="period" id="dashboard-period-label">Carregando período…</p></div>
+          <form class="report-filters dashboard-filters" id="dashboard-filters">
+            <label>Período<select id="dashboard-preset"><option value="current-month">Mês atual</option><option value="previous-month">Mês anterior</option><option value="last-30-days">Últimos 30 dias</option><option value="custom">Personalizado</option></select></label>
+            <label>De<input id="dashboard-from" type="date" required></label>
+            <label>Até<input id="dashboard-to" type="date" required></label>
+            <label>Projeção (dias)<input id="dashboard-horizon" type="number" min="1" max="90" value="30" required></label>
+            <button class="button button-quiet" type="submit">Atualizar</button>
+          </form>
+        </header>
+        <section class="guardian-panel" id="guardian-dashboard" data-guardian-panel aria-labelledby="guardian-dashboard-title" aria-busy="false">
+          <header class="guardian-panel-heading">
+            <div><p class="eyebrow">ACOMPANHAMENTO FINANCEIRO</p><h2 id="guardian-dashboard-title">Resumo Guardian</h2><p class="guardian-meta" data-guardian-meta></p></div>
+            <button class="button button-quiet" type="button" data-guardian-refresh aria-label="Atualizar resumo Guardian do Dashboard">Atualizar resumo</button>
+          </header>
+          <p class="guardian-status" data-guardian-status role="status" aria-live="polite">Carregando o resumo mais recente…</p>
+          <button class="button button-quiet guardian-retry" type="button" data-guardian-retry hidden>Tentar carregar novamente</button>
+          <div class="guardian-content" data-guardian-content hidden></div>
+        </section>
+        <p class="report-state" id="dashboard-state" role="status" aria-live="polite">Carregando dados contábeis e financeiros…</p>
+        <div class="dashboard-layout" id="dashboard-content" hidden>
+          <section class="report-panel cash-overview-panel">
+            <div class="panel-heading"><div><p class="eyebrow">CAIXA E BANCOS</p><h2>Posição e projeção</h2></div><a class="inline-link" href="#fluxo" data-go-screen="cashflow">Abrir fluxo de caixa</a></div>
+            <div class="metric-grid dashboard-cash-metrics">
+              <button class="metric" data-drill="cash-ledger"><span>Caixa disponível no corte</span><strong id="dash-cash-available">—</strong></button>
+              <button class="metric" data-go-screen="cashflow"><span>Saldo projetado no horizonte</span><strong id="dash-cash-projected">—</strong></button>
+              <button class="metric" data-drill="journal-cash"><span>Entradas operacionais realizadas</span><strong id="dash-realized-receipts">—</strong></button>
+              <button class="metric" data-drill="journal-cash"><span>Saídas operacionais realizadas</span><strong id="dash-realized-payments">—</strong></button>
+              <button class="metric" data-go-screen="receivables"><span>Recebimentos reconhecidos previstos</span><strong id="dash-projected-receipts">—</strong></button>
+              <button class="metric" data-go-screen="payables"><span>Pagamentos reconhecidos previstos</span><strong id="dash-projected-payments">—</strong></button>
+            </div>
+            <div class="chart-heading"><span>Saldo diário realizado e projetado</span><span class="chart-legend"><i class="legend-line actual-line"></i>Realizado <i class="legend-line forecast-line"></i>Reconhecido <i class="legend-line scenario-line"></i>Rascunhos, recorrências e orçamentos</span></div>
+            <div class="native-chart-wrap"><svg id="dashboard-cash-chart" class="native-chart" role="img" aria-label="Gráfico diário do saldo de caixa"></svg></div>
+            <div class="chart-details" id="dash-chart-details" aria-live="polite">Selecione um ponto para consultar seus movimentos.</div>
+            <div class="metric-strip"><span>Menor saldo projetado: <strong id="dash-minimum">—</strong></span><span>Primeiro saldo negativo: <strong id="dash-negative-date">—</strong></span><span>Rascunhos a pagar: <strong id="dash-draft-payments">—</strong></span><span>Rascunhos a receber: <strong id="dash-draft-receipts">—</strong></span><span>Recorrências: <strong id="dash-recurring-estimates">—</strong></span><span>Orçado a pagar: <strong id="dash-budget-payments">—</strong></span><span>Orçado a receber: <strong id="dash-budget-receipts">—</strong></span></div>
+            <div id="dash-cash-breakdown" class="cash-breakdown"></div>
+            <div class="subgrid two-col">
+              <div><h3>Saldos por conta</h3><div class="table-scroll compact-scroll"><table class="data-table compact-table"><thead><tr><th>Conta</th><th class="number-cell">Saldo</th></tr></thead><tbody id="dash-cash-accounts"></tbody></table></div></div>
+              <div><h3>Outros movimentos de caixa</h3><p class="small-note">Aberturas, financiamentos, ativos e outros movimentos não operacionais ficam separados. Transferências internas têm efeito consolidado zero.</p><div id="dash-other-cash" class="compact-summary"></div></div>
+            </div>
+          </section>
+          <section class="report-panel">
+            <div class="panel-heading"><div><p class="eyebrow">DIA DO CORTE</p><h2>Fluxo de caixa do dia</h2></div><a class="inline-link" href="#fluxo" data-go-screen="cashflow">Abrir fluxo de caixa</a></div>
+            <p class="small-note" id="dash-cash-day-label">Dia considerado: —</p>
+            <h3>Realizado no dia</h3>
+            <div class="metric-grid compact-metrics">
+              <button class="metric" data-drill="journal-cash"><span>Entradas realizadas</span><strong id="dash-cash-day-in">—</strong></button>
+              <button class="metric" data-drill="journal-cash"><span>Saídas realizadas</span><strong id="dash-cash-day-out">—</strong></button>
+              <button class="metric" data-drill="journal-cash"><span>Movimento líquido</span><strong id="dash-cash-day-net">—</strong></button>
+            </div>
+            <h3>Previsão reconhecida para o dia</h3>
+            <div class="metric-grid compact-metrics">
+              <button class="metric" data-go-screen="receivables"><span>Recebimentos em aberto</span><strong id="dash-cash-day-projected-in">—</strong></button>
+              <button class="metric" data-go-screen="payables"><span>Pagamentos em aberto</span><strong id="dash-cash-day-projected-out">—</strong></button>
+              <div class="metric"><span>Movimento líquido previsto</span><strong id="dash-cash-day-projected-net">—</strong></div>
+            </div>
+            <div class="compact-summary" id="dash-cash-day-details"></div>
+            <p class="small-note" id="dash-cash-day-estimates"></p>
+          </section>
+          <section class="report-panel">
+            <div class="panel-heading"><div><p class="eyebrow">CONTAS A PAGAR</p><h2>Compromissos</h2></div><a class="inline-link" href="#pagar" data-go-screen="payables">Abrir contas a pagar</a></div>
+            <div class="metric-grid compact-metrics">
+              <button class="metric" data-go-screen="payables"><span>Total em aberto</span><strong id="dash-payable-open">—</strong></button>
+              <button class="metric" data-go-screen="payables"><span>Vencidos</span><strong id="dash-payable-overdue">—</strong></button>
+              <button class="metric" data-go-screen="payables"><span>Próximos 7 dias</span><strong id="dash-payable-7">—</strong></button>
+              <button class="metric" data-go-screen="payables"><span>Próximos 30 dias</span><strong id="dash-payable-30">—</strong></button>
+              <button class="metric" data-go-screen="payables"><span>Pagos no período</span><strong id="dash-payable-paid">—</strong></button>
+              <div class="metric"><span>Compromissos ÷ caixa (operacional)</span><strong id="dash-commitment-ratio">—</strong></div>
+            </div>
+            <p class="small-note" id="dash-payable-recognition"></p>
+            <div class="subgrid two-col">
+              <div><h3>Distribuição por vencimento</h3><div id="dash-payable-distribution" class="bar-list"></div></div>
+              <div><h3>Próximos vencimentos</h3><div class="table-scroll compact-scroll"><table class="data-table compact-table"><thead><tr><th>Vencimento / credor</th><th class="number-cell">Em aberto</th></tr></thead><tbody id="dash-payable-upcoming"></tbody></table></div><div id="dash-payable-centers" class="bar-list"></div></div>
+            </div>
+          </section>
+          <section class="report-panel">
+            <div class="panel-heading"><div><p class="eyebrow">CONTAS A RECEBER</p><h2>Recebimentos esperados</h2></div><a class="inline-link" href="#receber" data-go-screen="receivables">Abrir contas a receber</a></div>
+            <div class="metric-grid compact-metrics">
+              <button class="metric" data-go-screen="receivables"><span>Total em aberto</span><strong id="dash-receivable-open">—</strong></button>
+              <button class="metric" data-go-screen="receivables"><span>Vencidos</span><strong id="dash-receivable-overdue">—</strong></button>
+              <button class="metric" data-go-screen="receivables"><span>Esperados em 30 dias</span><strong id="dash-receivable-30">—</strong></button>
+              <button class="metric" data-go-screen="receivables"><span>Recebidos no período</span><strong id="dash-receivable-collected">—</strong></button>
+              <div class="metric"><span>Recebimento em dia</span><strong id="dash-on-time-collection">—</strong></div>
+            </div>
+            <p class="small-note">Valores reconhecidos e rascunhos não reconhecidos são separados. Estimativas recorrentes não são caixa realizado.</p>
+            <div class="subgrid two-col"><div><h3>Previsto e realizado</h3><div id="dash-receivable-comparison" class="bar-list"></div><h3>Em aberto por receita</h3><div id="dash-receivable-sources" class="bar-list"></div></div><div><h3>Próximos recebimentos</h3><div class="table-scroll compact-scroll"><table class="data-table compact-table"><thead><tr><th>Data / origem</th><th class="number-cell">Em aberto</th></tr></thead><tbody id="dash-receivable-upcoming"></tbody></table></div></div></div>
+          </section>
+          <section class="report-panel">
+            <div class="panel-heading"><div><p class="eyebrow">CONTABILIDADE</p><h2>Integridade e grupos contábeis</h2></div><div class="panel-links"><a class="inline-link" href="#balancete" data-go-screen="trial-balance">Balancete</a><a class="inline-link" href="#razao" data-go-screen="ledger">Livro-Razão</a></div></div>
+            <div class="integrity-summary" id="dash-integrity"></div>
+            <div class="metric-grid compact-metrics"><div class="metric"><span>Débitos no período</span><strong id="dash-debits">—</strong></div><div class="metric"><span>Créditos no período</span><strong id="dash-credits">—</strong></div><div class="metric"><span>Diferença débito − crédito</span><strong id="dash-difference">—</strong></div></div>
+            <div class="table-scroll compact-scroll"><table class="data-table compact-table"><thead><tr><th>Grupo contábil</th><th>Base</th><th class="number-cell">Saldo / movimento</th></tr></thead><tbody id="dash-accounting-groups"></tbody></table></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-financial-analysis" aria-labelledby="analysis-title" hidden>
+        <header class="page-header analytics-header">
+          <div><p class="eyebrow">INDICADORES CONTÁBEIS E GERENCIAIS</p><h1 id="analysis-title">Análise Financeira</h1><p class="period" id="analysis-period-label">—</p></div>
+          <form class="report-filters analysis-filters" id="analysis-filters">
+            <label>Competência<input id="analysis-period" type="month" required></label>
+            <label>Centro de custo<select id="analysis-cost-center"><option value="">Todos</option></select></label>
+            <label>Meses no gráfico<select id="analysis-trend-count"><option>3</option><option>6</option><option>9</option><option>12</option></select></label>
+            <label>Histórico de caixa (dias)<input id="analysis-runway-days" type="number" min="7" max="180" value="30"></label>
+            <label>Categoria para concentração<select id="analysis-expense-account"><option value="">Selecione uma conta</option></select></label>
+            <button class="button button-quiet" type="submit">Atualizar</button>
+          </form>
+        </header>
+        <p class="report-state" id="analysis-state" role="status" aria-live="polite">Selecione a competência e atualize a análise.</p>
+        <div id="analysis-content" hidden>
+          <nav class="analysis-tabs" aria-label="Seções da análise financeira">
+            <button class="analysis-tab is-active" data-analysis-tab="liquidity" type="button">Liquidez</button>
+            <button class="analysis-tab" data-analysis-tab="debt" type="button">Endividamento</button>
+            <button class="analysis-tab" data-analysis-tab="performance" type="button">Resultado Econômico</button>
+            <button class="analysis-tab" data-analysis-tab="comparative" type="button">Análises Comparativas</button>
+            <button class="analysis-tab" data-analysis-tab="managerial" type="button">Indicadores Gerenciais</button>
+          </nav>
+          <section class="analysis-pane is-active" data-analysis-pane="liquidity">
+            <div class="report-panel"><div class="panel-heading"><div><p class="eyebrow">POSIÇÃO EM <span id="analysis-cutoff">—</span></p><h2>Liquidez</h2></div><a class="inline-link" href="#balancete" data-go-screen="trial-balance">Conferir no balancete</a></div><div id="analysis-liquidity-cards" class="analysis-card-grid"></div><div id="analysis-liquidity-note" class="small-note"></div></div>
+          </section>
+          <section class="analysis-pane" data-analysis-pane="debt" hidden>
+            <div class="report-panel"><div class="panel-heading"><div><p class="eyebrow">PATRIMÔNIO</p><h2>Endividamento e patrimônio líquido</h2></div><a class="inline-link" href="#razao" data-go-screen="ledger">Investigar no Livro-Razão</a></div><div id="analysis-debt-cards" class="analysis-card-grid"></div><div class="subgrid two-col"><div id="analysis-balance-bars" class="bar-list"></div><div id="analysis-debt-composition" class="bar-list"></div></div><p class="small-note" id="analysis-equity-note"></p></div>
+          </section>
+          <section class="analysis-pane" data-analysis-pane="performance" hidden>
+            <div class="report-panel"><div class="panel-heading"><div><p class="eyebrow">REGIME DE COMPETÊNCIA</p><h2>Demonstração econômica do período</h2></div><a class="inline-link" href="#dre" data-go-screen="dre">Abrir DRE mensal</a></div><div id="analysis-performance-cards" class="metric-grid compact-metrics"></div><div class="table-scroll compact-scroll"><table class="data-table compact-table"><thead><tr><th>Grupo</th><th>Conta</th><th class="number-cell">Valor por competência</th></tr></thead><tbody id="analysis-performance-table"></tbody></table></div><div class="subgrid two-col"><div><h3>Variação em relação ao mês anterior</h3><div id="analysis-performance-comparison" class="bar-list"></div></div><div><h3>Resultado por centro de custo</h3><div class="table-scroll compact-scroll"><table class="data-table compact-table"><thead><tr><th>Centro</th><th class="number-cell">Receitas</th><th class="number-cell">Custos</th><th class="number-cell">Despesas</th><th class="number-cell">Resultado</th></tr></thead><tbody id="analysis-cost-centers"></tbody></table></div></div></div><p class="small-note">O resultado por competência considera os lançamentos postados no mês informado. Ele não é equivalente ao fluxo de caixa nem, automaticamente, ao lucro empresarial.</p></div>
+          </section>
+          <section class="analysis-pane" data-analysis-pane="comparative" hidden>
+            <div class="report-panel"><div class="panel-heading"><div><p class="eyebrow">SÉRIE TEMPORAL</p><h2>Análises Comparativas</h2></div><label class="inline-select">Categoria<select id="analysis-trend-selector"></select></label></div><div class="metric-strip"><span>Variação absoluta: <strong id="analysis-variation-absolute">—</strong></span><span>Variação percentual: <strong id="analysis-variation-percent">—</strong></span></div><p class="small-note">Percentual = (atual − anterior) ÷ ABS(anterior) × 100. Se o valor anterior for zero, o percentual não é calculável. O sinal mantém a direção da mudança, inclusive para valores negativos.</p><div class="native-chart-wrap"><svg id="analysis-trend-chart" class="native-chart" role="img" aria-label="Tendência mensal da categoria selecionada"></svg></div><h3>Composição vertical</h3><label class="inline-select">Base da composição<select id="analysis-vertical-selector"><option value="expenses">Despesas</option><option value="revenue">Receitas</option><option value="costs">Custos</option><option value="assets">Ativo</option><option value="liabilities">Passivo</option></select></label><div id="analysis-vertical-bars" class="bar-list"></div><div class="table-scroll compact-scroll"><table class="data-table compact-table"><thead><tr><th>Conta analítica</th><th class="number-cell">Valor</th><th class="number-cell">Participação</th></tr></thead><tbody id="analysis-vertical-table"></tbody></table></div></div>
+          </section>
+          <section class="analysis-pane" data-analysis-pane="managerial" hidden>
+            <div class="report-panel"><div class="panel-heading"><div><p class="eyebrow">DECISÕES PESSOAIS</p><h2>Indicadores Gerenciais</h2></div><a class="inline-link" href="#fluxo" data-go-screen="cashflow">Consultar projeção de caixa</a></div><div id="analysis-managerial-cards" class="analysis-card-grid"></div><p class="small-note" id="analysis-managerial-note"></p></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="screen agent-screen" id="screen-agent" aria-labelledby="agent-title" hidden>
+        <header class="agent-screen-heading">
+          <div><p class="eyebrow">IA PARA GESTÃO</p><h1 id="agent-title">Agente Pro247</h1><p class="agent-intro">Converse sobre seus registros, compromissos e indicadores financeiros.</p></div>
+          <button class="button button-quiet" id="agent-new-conversation" type="button">Nova conversa</button>
+        </header>
+        <section class="guardian-panel guardian-panel-agent" id="guardian-agent" data-guardian-panel aria-labelledby="guardian-agent-title" aria-busy="false">
+          <header class="guardian-panel-heading">
+            <div><p class="eyebrow">ACOMPANHAMENTO FINANCEIRO</p><h2 id="guardian-agent-title">Panorama Guardian</h2><p class="guardian-meta" data-guardian-meta></p></div>
+            <button class="button button-quiet" type="button" data-guardian-refresh aria-label="Atualizar resumo Guardian do Agente">Atualizar resumo</button>
+          </header>
+          <p class="guardian-status" data-guardian-status role="status" aria-live="polite">Carregando o resumo mais recente…</p>
+          <button class="button button-quiet guardian-retry" type="button" data-guardian-retry hidden>Tentar carregar novamente</button>
+          <div class="guardian-content" data-guardian-content hidden></div>
+        </section>
+        <div class="agent-workspace">
+          <aside class="agent-room-rail" id="agent-room-rail" aria-label="Conversas">
+            <div class="agent-room-rail-heading">
+              <h2>Conversas</h2>
+              <button class="text-button" id="agent-refresh-conversations" type="button">Atualizar</button>
+            </div>
+            <p class="agent-room-list-status" id="agent-room-list-status" role="status" aria-live="polite" hidden></p>
+            <button class="button button-quiet agent-room-retry" id="agent-room-list-retry" type="button" hidden>Tentar carregar novamente</button>
+            <ul class="agent-room-list" id="agent-room-list" aria-label="Salas de conversa"></ul>
+            <p class="agent-room-empty" id="agent-room-empty" hidden>Nenhuma conversa salva. Crie uma nova conversa para começar.</p>
+          </aside>
+          <section class="agent-chat" aria-label="Conversa com o Agente Pro247">
+            <div class="agent-chat-toolbar">
+              <button class="text-button agent-room-list-toggle" id="agent-room-list-toggle" type="button" aria-controls="agent-room-rail" aria-expanded="false">Conversas</button>
+              <span class="agent-provider"><span class="agent-provider-dot" id="agent-provider-dot" aria-hidden="true"></span><span id="agent-provider-label">Verificando DeepSeek…</span></span>
+              <div class="agent-response-level-control">
+                <label for="agent-response-level">Nível da explicação</label>
+                <select id="agent-response-level" aria-describedby="agent-response-level-help">
+                  <option value="iniciante">Iniciante</option>
+                  <option value="intermediario" selected>Intermediário</option>
+                  <option value="avancado">Avançado</option>
+                </select>
+                <span class="agent-response-level-help" id="agent-response-level-help">Só nesta sessão; volta ao padrão ao recarregar ou sair.</span>
+                <span class="visually-hidden" id="agent-response-level-status" role="status" aria-live="polite"></span>
+              </div>
+              <button class="text-button" id="agent-configure-key" type="button">Configurar DeepSeek</button>
+            </div>
+            <div class="agent-key-required" id="agent-key-required" hidden role="status"><span>Configure uma chave da API para conversar com o agente.</span><button class="button button-quiet" id="agent-key-required-configure" type="button">Configurar chave</button></div>
+            <div class="agent-conversation-heading"><h2 id="agent-conversation-title">Nova conversa</h2><button class="text-button" id="agent-load-older" type="button" hidden>Carregar mensagens anteriores</button></div>
+            <p class="agent-conversation-status" id="agent-conversation-status" role="status" aria-live="polite" hidden></p>
+            <p class="agent-actions-status" id="agent-actions-status" role="status" aria-live="polite" hidden></p>
+            <button class="button button-quiet agent-actions-retry" id="agent-actions-retry" type="button" hidden>Tentar carregar propostas novamente</button>
+            <button class="button button-quiet agent-conversation-retry" id="agent-conversation-retry" type="button" hidden>Tentar carregar novamente</button>
+            <div class="agent-messages" id="agent-messages" aria-live="polite" aria-relevant="additions text" aria-label="Histórico da conversa" aria-busy="false"></div>
+            <form id="agent-form" class="agent-form">
+              <label class="visually-hidden" for="agent-input">Mensagem para o Agente Pro247</label>
+              <textarea id="agent-input" rows="2" maxlength="4000" placeholder="Pergunte sobre a situação financeira ou os próximos passos…"></textarea>
+              <div class="agent-composer-footer"><span class="field-hint">Enter envia · Shift+Enter adiciona uma linha</span><button class="button button-primary" id="agent-submit" type="submit" disabled>Enviar</button></div>
+              <p class="form-error" id="agent-error" role="alert" hidden></p>
+            </form>
+          </section>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-cashflow" aria-labelledby="cashflow-title" hidden>
+        <header class="screen-heading compact-heading">
+          <div><p class="eyebrow">MOVIMENTAÇÃO DE CAIXA</p><h1 id="cashflow-title">Fluxo de Caixa</h1></div>
+          <label class="month-control" for="cashflow-month"><span>Período</span><input id="cashflow-month" type="month" value="2026-10"></label>
+        </header>
+        <div class="legacy-notice" id="opening-notice" hidden></div>
+        <nav class="period-nav" aria-label="Navegação mensal">
+          <button class="button button-quiet" id="cashflow-previous" type="button">← Mês anterior</button>
+          <span id="cashflow-period-label" class="period-label"></span>
+          <button class="button button-quiet" id="cashflow-next" type="button">Próximo mês →</button>
+        </nav>
+        <section class="grid-section" aria-label="Planilha mensal do fluxo de caixa">
+          <div class="grid-scroll" tabindex="0" aria-label="Grade financeira do mês inteiro, sem rolagem horizontal; rolagem vertical para consultar as contas">
+            <table class="cash-grid" id="cash-grid"><thead id="cash-head"></thead><tbody id="cash-body"><tr><td>Carregando...</td></tr></tbody></table>
+          </div>
+        </section>
+        <p class="screen-note">Valores em reais, em formato compacto; passe o cursor sobre um movimento para conferir o valor completo e o centro de custo associado, quando houver. Movimentos realizados vêm do Livro Diário. Valores futuros ficam separados e não alteram o caixa realizado.</p>
+        <p class="cashflow-legend"><strong>Previsões:</strong> <span class="cashflow-legend-budget">Orçado</span> · <span class="cashflow-legend-draft">Documento em rascunho</span> · <span class="cashflow-legend-recognized">Reconhecido em aberto</span> · Realizado. O saldo projetado soma previsões; o saldo realizado usa somente movimentos postados.</p>
+      </section>
+
+      <section class="screen" id="screen-bank-statements" aria-labelledby="bank-statement-title" hidden>
+        <header class="page-header bank-statement-header">
+          <div><p class="eyebrow">EXTRATO BANCÁRIO</p><h1 id="bank-statement-title">Contas Correntes</h1><p class="period">Movimentos contabilizados por conta caixa ou banco</p></div>
+          <form class="report-filters bank-statement-filters" id="bank-statement-filters">
+            <label>Conta bancária<select id="bank-statement-account" required></select></label>
+            <label>De<input id="bank-statement-from" type="date" required></label>
+            <label>Até<input id="bank-statement-to" type="date" required></label>
+            <button class="button button-quiet" type="submit">Consultar extrato</button>
+          </form>
+        </header>
+        <p class="report-state" id="bank-statement-state" role="status" aria-live="polite">Selecione a conta e o período para consultar o extrato.</p>
+        <div id="bank-statement-content" hidden>
+          <div class="metric-grid statement-metrics" aria-label="Resumo do extrato">
+            <div class="metric"><span>Saldo anterior</span><strong id="bank-statement-opening">—</strong></div>
+            <div class="metric"><span>Entradas no período</span><strong id="bank-statement-inflows">—</strong></div>
+            <div class="metric"><span>Saídas no período</span><strong id="bank-statement-outflows">—</strong></div>
+            <div class="metric"><span>Saldo final</span><strong id="bank-statement-closing">—</strong></div>
+          </div>
+          <p class="small-note" id="bank-statement-account-label"></p>
+          <div class="table-scroll bank-statement-scroll">
+            <table class="data-table bank-statement-table" aria-label="Extrato da conta bancária">
+              <thead><tr><th>Data</th><th>Nº</th><th>Histórico</th><th class="number-cell">Entradas</th><th class="number-cell">Saídas</th><th class="number-cell">Saldo</th></tr></thead>
+              <tbody id="bank-statement-body"></tbody>
+              <tfoot id="bank-statement-foot"></tfoot>
+            </table>
+          </div>
+          <p class="screen-note">O extrato usa a data de contabilização e somente lançamentos postados na conta selecionada. Transferências entre bancos aparecem como saída em uma conta e entrada na outra. A soma consolidada entre contas continua neutra.</p>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-journal" aria-labelledby="journal-title" hidden>
+        <header class="list-heading"><div><p class="eyebrow">REGISTRO CONTÁBIL</p><h1 id="journal-title">Livro Diário</h1></div><div class="heading-controls"><label>Mês<input id="journal-month" type="month" value="2026-10"></label><button class="button button-primary" id="new-journal-entry" type="button">+ Lançamento manual</button></div></header>
+        <div class="legacy-notice" id="journal-opening-notice" hidden></div>
+        <div class="table-scroll">
+          <table class="data-table" aria-label="Lançamentos do Livro Diário"><thead id="journal-sort-head"><tr><th aria-sort="ascending"><button type="button" class="table-sort" data-sort-key="date" data-sort-label="Data" aria-label="Ordenar por Data" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Data <span class="sort-indicator" aria-hidden="true">↑</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="number" data-sort-label="Número" aria-label="Ordenar por Número" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Nº <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="description" data-sort-label="Histórico" aria-label="Ordenar por Histórico" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Histórico <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="origin" data-sort-label="Origem" aria-label="Ordenar por Origem" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Origem <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th class="number-cell" aria-sort="none"><button type="button" class="table-sort" data-sort-key="debit" data-sort-label="Débitos" aria-label="Ordenar por Débitos" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Débitos <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th class="number-cell" aria-sort="none"><button type="button" class="table-sort" data-sort-key="credit" data-sort-label="Créditos" aria-label="Ordenar por Créditos" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Créditos <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="status" data-sort-label="Situação" aria-label="Ordenar por Situação" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Situação <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="details" data-sort-label="Detalhes" aria-label="Ordenar por Detalhes" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Detalhes <span class="sort-indicator" aria-hidden="true">↕</span></button></th></tr></thead><tbody id="journal-body"></tbody></table>
+        </div>
+        <p class="empty-state" id="journal-empty" hidden>Nenhum lançamento postado neste período.</p>
+      </section>
+
+      <section class="screen" id="screen-payables" aria-labelledby="payables-title" hidden>
+        <header class="list-heading"><div><p class="eyebrow">OBRIGAÇÕES</p><h1 id="payables-title">Contas a Pagar</h1></div><div class="heading-controls"><label>Situação<select id="payable-status-filter"><option value="todas">Todas</option><option value="orcado">Orçado</option><option value="draft">Rascunho</option><option value="open">Em aberto</option><option value="partially_paid">Parcialmente pagas</option><option value="paid">Pagas</option><option value="overdue">Vencidas</option></select></label><label>Competência<input id="payable-period-filter" type="month"></label><button class="button button-primary" id="new-payable" type="button">+ Nova conta a pagar</button></div></header>
+        <div class="table-scroll"><table class="data-table"><thead id="payable-sort-head"><tr><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="party" data-sort-label="Credor / documento" aria-label="Ordenar por Credor ou documento" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Credor / documento <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="issueDate" data-sort-label="Emissão" aria-label="Ordenar por Emissão" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Emissão <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="dueDate" data-sort-label="Vencimento" aria-label="Ordenar por Vencimento" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Vencimento <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="competence" data-sort-label="Competência" aria-label="Ordenar por Competência" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Competência <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th class="number-cell" aria-sort="none"><button type="button" class="table-sort" data-sort-key="amount" data-sort-label="Valor" aria-label="Ordenar por Valor" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Valor <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th class="number-cell" aria-sort="none"><button type="button" class="table-sort" data-sort-key="outstanding" data-sort-label="Em aberto" aria-label="Ordenar por Em aberto" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Em aberto <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="status" data-sort-label="Situação" aria-label="Ordenar por Situação" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Situação <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th>Ações</th></tr></thead><tbody id="payable-body"></tbody></table></div>
+        <p class="empty-state" id="payable-empty" hidden>Nenhuma conta a pagar corresponde aos filtros.</p>
+        <section class="budget-forecast-section" id="payable-budget-section" aria-labelledby="payable-budget-title">
+          <div class="panel-heading"><div><p class="eyebrow">ESTIMATIVAS</p><h2 id="payable-budget-title">Orçados</h2></div></div>
+          <p class="small-note">Ocorrências planejadas em orçamentos ativos. O filtro de competência compara aqui o vencimento previsto; esses valores não são obrigações reconhecidas.</p>
+          <div class="table-scroll"><table class="data-table budget-forecast-table"><thead><tr><th>Orçamento / contraparte</th><th>Vencimento previsto</th><th>Classificação · centro de custo</th><th class="number-cell">Valor orçado</th><th>Situação</th><th>Ações</th></tr></thead><tbody id="payable-budget-body"></tbody></table></div>
+          <p class="empty-state" id="payable-budget-empty" hidden>Nenhum orçamento ativo corresponde aos filtros.</p>
+        </section>
+      </section>
+
+      <section class="screen" id="screen-receivables" aria-labelledby="receivables-title" hidden>
+        <header class="list-heading"><div><p class="eyebrow">DIREITOS A RECEBER</p><h1 id="receivables-title">Contas a Receber</h1></div><div class="heading-controls"><label>Situação<select id="receivable-status-filter"><option value="todas">Todas</option><option value="orcado">Orçado</option><option value="draft">Rascunho</option><option value="open">Em aberto</option><option value="partially_paid">Parcialmente recebidas</option><option value="paid">Recebidas</option><option value="overdue">Vencidas</option></select></label><label>Competência<input id="receivable-period-filter" type="month"></label><button class="button button-primary" id="new-receivable" type="button">+ Nova conta a receber</button></div></header>
+        <div class="table-scroll"><table class="data-table"><thead id="receivable-sort-head"><tr><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="party" data-sort-label="Pagador / documento" aria-label="Ordenar por Pagador ou documento" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Pagador / documento <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="issueDate" data-sort-label="Emissão" aria-label="Ordenar por Emissão" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Emissão <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="dueDate" data-sort-label="Vencimento" aria-label="Ordenar por Vencimento" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Vencimento <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="competence" data-sort-label="Competência" aria-label="Ordenar por Competência" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Competência <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th class="number-cell" aria-sort="none"><button type="button" class="table-sort" data-sort-key="amount" data-sort-label="Valor" aria-label="Ordenar por Valor" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Valor <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th class="number-cell" aria-sort="none"><button type="button" class="table-sort" data-sort-key="outstanding" data-sort-label="Em aberto" aria-label="Ordenar por Em aberto" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Em aberto <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th aria-sort="none"><button type="button" class="table-sort" data-sort-key="status" data-sort-label="Situação" aria-label="Ordenar por Situação" style="border:0;padding:0;color:inherit;background:transparent;font:inherit;letter-spacing:inherit">Situação <span class="sort-indicator" aria-hidden="true">↕</span></button></th><th>Ações</th></tr></thead><tbody id="receivable-body"></tbody></table></div>
+        <p class="empty-state" id="receivable-empty" hidden>Nenhuma conta a receber corresponde aos filtros.</p>
+        <section class="budget-forecast-section" id="receivable-budget-section" aria-labelledby="receivable-budget-title">
+          <div class="panel-heading"><div><p class="eyebrow">ESTIMATIVAS</p><h2 id="receivable-budget-title">Orçados</h2></div></div>
+          <p class="small-note">Ocorrências planejadas em orçamentos ativos. O filtro de competência compara aqui o vencimento previsto; esses valores não são recebíveis reconhecidos.</p>
+          <div class="table-scroll"><table class="data-table budget-forecast-table"><thead><tr><th>Orçamento / contraparte</th><th>Vencimento previsto</th><th>Classificação · centro de custo</th><th class="number-cell">Valor orçado</th><th>Situação</th><th>Ações</th></tr></thead><tbody id="receivable-budget-body"></tbody></table></div>
+          <p class="empty-state" id="receivable-budget-empty" hidden>Nenhum orçamento ativo corresponde aos filtros.</p>
+        </section>
+      </section>
+
+      <section class="screen" id="screen-budgets" aria-labelledby="budgets-title" hidden>
+        <header class="screen-heading budget-page-heading">
+          <div><p class="eyebrow">ESTIMATIVAS FINANCEIRAS</p><h1 id="budgets-title">Orçamentos</h1><p>Programações independentes de documentos contábeis. Efetivar cria um rascunho em Contas a Pagar ou Contas a Receber.</p></div>
+        </header>
+        <nav class="budget-tabs" role="tablist" aria-label="Visões de Orçamentos">
+          <button class="budget-tab is-active" id="budget-tab-programacao" role="tab" aria-selected="true" aria-controls="budget-programming-view" data-budget-view="programacao" type="button">Programação</button>
+          <button class="budget-tab" id="budget-tab-relatorio" role="tab" aria-selected="false" aria-controls="budget-report-view" data-budget-view="relatorio" type="button" tabindex="-1">Relatório</button>
+        </nav>
+        <section id="budget-programming-view" role="tabpanel" aria-labelledby="budget-tab-programacao">
+          <form class="report-filters compact-filters budget-filters" id="budget-list-filters">
+            <label>Buscar<input id="budget-list-search" type="search" maxlength="160" placeholder="Descrição ou contraparte"></label>
+            <label>Tipo<select id="budget-list-direction"><option value="all">Todos</option><option value="payable">Despesa · pagar</option><option value="receivable">Receita · receber</option></select></label>
+            <label>Situação do orçamento<select id="budget-list-plan-status"><option value="active">Ativos</option><option value="archived">Arquivados</option><option value="all">Todos</option></select></label>
+            <label>Situação dos vencimentos<select id="budget-list-occurrence-status"><option value="all">Todas</option><option value="planned">Previstos</option><option value="converted">Efetivados</option><option value="cancelled">Cancelados</option></select></label>
+            <button class="button button-quiet" type="submit">Filtrar</button>
+          </form>
+          <p class="report-state" id="budget-list-state" role="status" aria-live="polite">Carregando programações…</p>
+          <div class="table-scroll"><table class="data-table budget-list-table"><thead><tr><th>Orçamento</th><th>Tipo</th><th>Contraparte</th><th>Vencimentos</th><th class="number-cell">Previsto pendente</th><th>Situação</th><th>Ações</th></tr></thead><tbody id="budget-list-body"></tbody></table></div>
+        </section>
+        <section id="budget-report-view" role="tabpanel" aria-labelledby="budget-tab-relatorio" hidden>
+          <form class="report-filters compact-filters budget-filters" id="budget-report-filters">
+            <label>De<input id="budget-report-from" type="date" required></label>
+            <label>Até<input id="budget-report-to" type="date" required></label>
+            <label>Tipo<select id="budget-report-direction"><option value="all">Todos</option><option value="payable">Despesa · pagar</option><option value="receivable">Receita · receber</option></select></label>
+            <label>Classificação<select id="budget-report-category"><option value="all">Todas</option></select></label>
+            <label>Centro de custo<select id="budget-report-cost-center"><option value="all">Todos</option><option value="none">Sem centro de custo</option></select></label>
+            <label>Situação do vencimento<select id="budget-report-status"><option value="all">Todas</option><option value="planned">Previstos</option><option value="converted">Efetivados</option><option value="cancelled">Cancelados</option></select></label>
+            <label>Orçamento<select id="budget-report-plan-status"><option value="all">Ativos e arquivados</option><option value="active">Ativos</option><option value="archived">Arquivados</option></select></label>
+            <label>Buscar<input id="budget-report-search" type="search" maxlength="160" placeholder="Descrição ou contraparte"></label>
+            <button class="button button-quiet" type="submit">Consultar</button>
+          </form>
+          <p class="report-state" id="budget-report-state" role="status" aria-live="polite">Escolha o período e consulte.</p>
+          <div class="budget-report-totals" id="budget-report-totals" aria-live="polite" hidden></div>
+          <section class="budget-report-groups" aria-labelledby="budget-month-totals-title">
+            <h2 id="budget-month-totals-title">Totais mensais por tipo</h2>
+            <div class="table-scroll"><table class="data-table"><thead><tr><th>Mês</th><th>Tipo</th><th class="number-cell">Previsões pendentes</th><th class="number-cell">Orçado efetivado</th><th class="number-cell">Documento gerado</th></tr></thead><tbody id="budget-report-groups"></tbody></table></div>
+          </section>
+          <section class="budget-report-rows" aria-labelledby="budget-report-rows-title">
+            <h2 id="budget-report-rows-title">Vencimentos do período</h2>
+            <div class="table-scroll"><table class="data-table budget-report-table"><thead><tr><th>Orçamento / contraparte</th><th>Tipo</th><th>Classificação</th><th>Previsto</th><th class="number-cell">Valor orçado</th><th>Situação</th><th>Documento / valor real</th><th>Variação real − orçado</th><th>Ação</th></tr></thead><tbody id="budget-report-body"></tbody></table></div>
+          </section>
+          <p class="screen-note">Os totais permanecem separados: previsões pendentes, estimativas convertidas e documentos efetivos. Orçamentos não compõem o Razão, a DRE ou o fluxo oficial; estados do documento vêm de Contas a Pagar/Receber.</p>
+        </section>
+      </section>
+
+      <section class="screen" id="screen-ledger" aria-labelledby="ledger-title" hidden>
+        <header class="list-heading"><div><p class="eyebrow">CONSULTA POR CONTA</p><h1 id="ledger-title">Livro-Razão e Razonete</h1></div></header>
+        <form class="report-filters" id="ledger-filters">
+          <label>Conta analítica<select id="ledger-account" required></select></label>
+          <label>De<input id="ledger-from" type="date" required></label><label>Até<input id="ledger-to" type="date" required></label>
+          <button class="button button-quiet" type="submit">Consultar</button>
+        </form>
+        <div class="report-summary" id="ledger-summary"></div>
+        <div class="report-grid"><section><h2>Livro-Razão</h2><div class="table-scroll"><table class="data-table"><thead><tr><th>Data</th><th>Nº</th><th>Histórico</th><th class="number-cell">Débito</th><th class="number-cell">Crédito</th><th class="number-cell">Saldo</th></tr></thead><tbody id="ledger-body"></tbody></table></div></section>
+          <section><h2>Razonete</h2><div id="t-account" class="t-account"></div></section></div>
+      </section>
+
+      <section class="screen" id="screen-trial-balance" aria-labelledby="trial-title" hidden>
+        <header class="list-heading"><div><p class="eyebrow">CONFERÊNCIA DO RAZÃO</p><h1 id="trial-title">Balancete de Verificação</h1></div></header>
+        <form class="report-filters" id="trial-filters">
+          <label>De competência<input id="trial-from" type="month" required></label><label>Até competência<input id="trial-to" type="month" required></label>
+          <label>Grau<select id="trial-degree"><option value="">Todos</option></select></label>
+          <button class="button button-quiet" type="submit">Consultar</button>
+        </form>
+        <p class="balance-status" id="trial-status" role="status"></p>
+        <div class="trial-tree-actions" aria-label="Navegação pelos níveis do balancete"><button class="trial-level-button" id="trial-level-up" type="button" aria-label="Subir um nível" title="Recolher um nível">↑</button><span id="trial-level-label" aria-live="polite">Nível exibido: 1</span><button class="trial-level-button" id="trial-level-down" type="button" aria-label="Descer um nível" title="Expandir um nível">↓</button></div>
+        <div class="table-scroll"><table class="data-table trial-table"><thead><tr><th>Código</th><th>Conta</th><th class="number-cell">Saldo inicial</th><th class="number-cell">Débitos no período</th><th class="number-cell">Créditos no período</th><th class="number-cell">Saldo final</th></tr></thead><tbody id="trial-body"></tbody><tfoot id="trial-foot"></tfoot></table></div>
+      </section>
+
+      <section class="screen" id="screen-balance-sheet" aria-labelledby="balance-sheet-title" hidden>
+        <header class="list-heading balance-sheet-heading">
+          <div><p class="eyebrow" id="balance-sheet-position">POSIÇÃO EM —</p><h1 id="balance-sheet-title">Balanço Patrimonial</h1></div>
+          <form class="report-filters balance-sheet-filters" id="balance-sheet-filters">
+            <label for="balance-sheet-date">Data-base<input id="balance-sheet-date" type="date" required></label>
+            <button class="button button-quiet" type="submit">Consultar</button>
+          </form>
+        </header>
+        <p class="screen-note balance-sheet-note">Posição patrimonial somente de leitura. O resultado ainda não encerrado aparece como ajuste virtual de apresentação e não cria partidas contábeis; este relatório não representa um balanço formalmente encerrado.</p>
+        <p class="balance-status" id="balance-sheet-status" role="status" aria-live="polite"></p>
+        <p class="report-state" id="balance-sheet-state" role="status" aria-live="polite" hidden></p>
+        <div id="balance-sheet-content" class="balance-sheet-content" aria-busy="false" hidden>
+          <div class="trial-tree-actions balance-sheet-tree-actions" aria-label="Navegação pelos níveis do plano de contas">
+            <button class="trial-level-button" id="balance-sheet-level-up" type="button" aria-label="Recolher um nível" title="Recolher um nível">↑</button>
+            <span id="balance-sheet-level-label" aria-live="polite">Nível exibido: 1</span>
+            <button class="trial-level-button" id="balance-sheet-level-down" type="button" aria-label="Expandir um nível" title="Expandir um nível">↓</button>
+          </div>
+          <div class="balance-sheet-layout">
+            <section class="balance-sheet-panel balance-sheet-assets" aria-labelledby="balance-sheet-assets-title">
+              <h2 id="balance-sheet-assets-title">ATIVO</h2>
+              <div class="table-scroll balance-sheet-table-wrap"><table class="data-table balance-sheet-table"><thead><tr><th scope="col">Conta</th><th scope="col" class="number-cell">Saldo</th></tr></thead><tbody id="balance-sheet-assets-body"></tbody></table></div>
+            </section>
+            <div class="balance-sheet-right-column">
+              <section class="balance-sheet-panel" aria-labelledby="balance-sheet-liabilities-title">
+                <h2 id="balance-sheet-liabilities-title">PASSIVO</h2>
+                <div class="table-scroll balance-sheet-table-wrap"><table class="data-table balance-sheet-table"><thead><tr><th scope="col">Conta</th><th scope="col" class="number-cell">Saldo</th></tr></thead><tbody id="balance-sheet-liabilities-body"></tbody></table></div>
+              </section>
+              <section class="balance-sheet-panel" aria-labelledby="balance-sheet-equity-title">
+                <h2 id="balance-sheet-equity-title">PATRIMÔNIO LÍQUIDO</h2>
+                <div class="table-scroll balance-sheet-table-wrap"><table class="data-table balance-sheet-table"><thead><tr><th scope="col">Conta</th><th scope="col" class="number-cell">Saldo</th></tr></thead><tbody id="balance-sheet-equity-body"></tbody></table></div>
+              </section>
+            </div>
+          </div>
+          <p class="balance-sheet-result-note" id="balance-sheet-result-note"></p>
+          <div class="balance-sheet-totals" id="balance-sheet-totals" aria-label="Totais e conciliação patrimonial"></div>
+          <ul class="balance-sheet-warnings" id="balance-sheet-warnings" aria-label="Avisos da posição patrimonial" hidden></ul>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-dre" aria-labelledby="dre-title" hidden>
+        <header class="list-heading">
+          <div><p class="eyebrow">RESULTADO DO PERÍODO</p><h1 id="dre-title">Demonstração do Resultado</h1></div>
+          <div class="heading-controls">
+            <label>Mês<input id="dre-period" type="month" value="2026-10"></label>
+            <label>Regime<select id="dre-regime"><option value="cash">Caixa</option><option value="accrual">Competência</option></select></label>
+            <label>Centro de custo<select id="dre-cost-center"><option value="">Todos</option><option value="sem-centro">Sem centro de custo</option></select></label>
+          </div>
+        </header>
+        <p class="screen-note dre-note">Somatório mensal por conta de resultado. Caixa considera pagamentos e recebimentos efetivos; competência usa o período dos lançamentos postados. O resultado pode ser filtrado por centro de custo.</p>
+        <p class="balance-status" id="dre-status" role="status"></p>
+        <div class="dre-grid">
+          <section class="dre-panel" aria-labelledby="dre-regime-title">
+            <h2 id="dre-regime-title">DRE por regime de caixa</h2>
+            <p class="dre-period-label" id="dre-period-label"></p>
+            <div class="table-scroll"><table class="data-table dre-table"><thead><tr><th>Composição</th><th class="number-cell">Somatório do mês</th></tr></thead><tbody id="dre-body"></tbody></table></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-registrations" aria-labelledby="registrations-title" hidden>
+        <header class="list-heading"><div><p class="eyebrow">PLANO DE CONTAS E DIMENSÕES</p><h1 id="registrations-title">Cadastros</h1></div></header>
+        <nav class="registration-tabs" aria-label="Cadastros disponíveis">
+          <button class="registration-tab is-active" data-register="degrees" type="button" aria-current="page" aria-controls="registration-table">Graus</button><button class="registration-tab" data-register="subcategories" type="button" aria-controls="registration-table">Subcategorias</button><button class="registration-tab" data-register="accounts" type="button" aria-controls="registration-table">Contas</button><button class="registration-tab" data-register="parties" type="button" aria-controls="registration-table">Clientes e Fornecedores</button><button class="registration-tab" data-register="cost-centers" type="button" aria-controls="registration-table">Centros de Custo</button>
+        </nav>
+        <div class="registration-heading"><p class="register-hint" id="registration-hint"></p><button class="button button-primary" id="add-registration" type="button">+ Novo cadastro</button></div>
+        <div class="report-filters compact-filters party-list-filters" id="party-list-filters" hidden>
+          <label for="party-search">Buscar<input id="party-search" type="search" maxlength="160" placeholder="Nome, nome fantasia ou CPF/CNPJ" autocomplete="off"></label>
+          <label for="party-role-filter">Papel<select id="party-role-filter"><option value="all">Todos</option><option value="customer">Clientes</option><option value="supplier">Fornecedores</option><option value="both">Ambos</option></select></label>
+          <label for="party-status-filter">Situação<select id="party-status-filter"><option value="active">Ativos</option><option value="inactive">Inativos</option><option value="all">Todos</option></select></label>
+        </div>
+        <p class="party-list-status" id="party-list-status" role="status" aria-live="polite" hidden></p>
+        <div class="table-scroll"><table class="data-table" id="registration-table"><thead id="registration-head"></thead><tbody id="registration-body"></tbody></table></div>
+        <div class="cost-report" id="cost-report" hidden>
+          <h2>Custos e despesas por centro de custo</h2><form class="report-filters compact-filters" id="cost-report-filters"><label>De<input id="cost-report-from" type="month" required></label><label>Até<input id="cost-report-to" type="month" required></label><button class="button button-quiet" type="submit">Consultar</button></form>
+          <div class="table-scroll"><table class="data-table"><thead><tr><th>Centro de custo</th><th class="number-cell">Custos</th><th class="number-cell">Despesas</th></tr></thead><tbody id="cost-report-body"></tbody></table></div>
+        </div>
+      </section>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </main>
+
+    <dialog class="dialog budget-dialog" id="budget-dialog" aria-labelledby="budget-dialog-title">
+      <form id="budget-form">
+        <div class="dialog-heading"><div><p class="eyebrow" id="budget-dialog-eyebrow">PROGRAMAÇÃO FINANCEIRA</p><h2 id="budget-dialog-title">Novo orçamento</h2></div><button class="icon-button" data-close="budget-dialog" type="button" aria-label="Fechar">×</button></div>
+        <div class="form-grid">
+          <label>Tipo<select id="budget-direction" required><option value="payable">Despesa · Contas a Pagar</option><option value="receivable">Receita · Contas a Receber</option></select></label>
+          <label>Descrição<input id="budget-title" maxlength="160" required autocomplete="off" placeholder="Ex.: Conta de telefone"></label>
+        </div>
+        <div class="form-grid">
+          <label>Cadastro de fornecedor/cliente (opcional)<select id="budget-party-select"><option value="">Sem cadastro vinculado</option></select></label>
+          <label>Nome da contraparte (opcional)<input id="budget-party-name" maxlength="120" autocomplete="off"></label>
+        </div>
+        <div class="form-grid">
+          <label>Classificação sugerida (opcional)<select id="budget-account"><option value="">Sem classificação sugerida</option></select></label>
+          <label>Centro de custo (opcional)<select id="budget-cost-center"></select></label>
+        </div>
+        <label>Observações<input id="budget-notes" maxlength="1000" autocomplete="off"></label>
+        <div class="form-grid budget-mode-field"><label>Modo da programação<select id="budget-schedule-mode"><option value="monthly">Gerar mensalmente</option><option value="manual">Adicionar vencimentos manualmente</option></select></label><p class="field-hint">A geração mensal apenas preenche a tabela; você revisa cada vencimento antes de salvar.</p></div>
+        <section id="budget-monthly-controls" class="budget-monthly-controls" aria-labelledby="budget-schedule-title">
+          <div class="budget-section-heading"><div><h3 id="budget-schedule-title">Gerar vencimentos mensais</h3><p>Dia 29, 30 ou 31 cai no último dia de meses mais curtos e volta ao dia original no mês seguinte.</p></div></div>
+          <div class="form-grid budget-generation-fields">
+            <label>Primeiro vencimento<input id="budget-first-due" type="date"></label>
+            <label>Valor padrão<input id="budget-default-amount" inputmode="decimal" placeholder="200,00" autocomplete="off"></label>
+            <label>Quantidade<input id="budget-occurrence-count" type="number" min="1" max="1000" value="1"></label>
+            <button class="button button-quiet budget-generate-button" id="budget-generate" type="button">Gerar vencimentos</button>
+          </div>
+        </section>
+        <div class="budget-section-heading budget-occurrences-heading"><div><h3>Vencimentos previstos</h3><p>Edite cada data e valor antes de salvar. Cada linha é independente.</p></div><button class="button button-quiet" id="budget-add-occurrence" type="button">+ Adicionar vencimento</button></div>
+        <div class="table-scroll budget-editor-table-scroll"><table class="data-table budget-editor-table"><thead><tr><th>Vencimento previsto</th><th class="number-cell">Valor previsto (R$)</th><th>Observação da linha</th><th>Ação</th></tr></thead><tbody id="budget-occurrence-rows"></tbody></table></div>
+        <p class="field-hint" id="budget-occurrence-count-label" aria-live="polite">Nenhum vencimento adicionado.</p>
+        <section class="budget-history" id="budget-history" hidden aria-labelledby="budget-history-title">
+          <h3 id="budget-history-title">Histórico de vencimentos</h3>
+          <div class="table-scroll"><table class="data-table"><thead><tr><th>Vencimento previsto</th><th class="number-cell">Valor orçado</th><th>Situação</th><th>Documento / valor efetivo</th></tr></thead><tbody id="budget-history-body"></tbody></table></div>
+        </section>
+        <p class="form-error" id="budget-error" role="alert" hidden></p>
+        <div class="dialog-actions">
+          <button class="button button-quiet" data-close="budget-dialog" type="button">Cancelar</button>
+          <button class="button button-primary" id="budget-save" type="submit">Salvar programação</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="dialog budget-conversion-dialog" id="budget-convert-dialog" aria-labelledby="budget-convert-title">
+      <form id="budget-convert-form">
+        <div class="dialog-heading"><div><p class="eyebrow" id="budget-convert-eyebrow">EFETIVAÇÃO · CONTA A PAGAR</p><h2 id="budget-convert-title">Revisar vencimento</h2></div><button class="icon-button" data-close="budget-convert-dialog" type="button" aria-label="Fechar">×</button></div>
+        <p class="screen-note">A efetivação cria um rascunho no módulo correspondente. Não reconhece, paga, recebe nem lança no Diário.</p>
+        <div class="budget-comparison" aria-label="Comparação de valores orçados e efetivos">
+          <section><h3>Orçado / previsto</h3><dl><div><dt>Vencimento</dt><dd id="budget-convert-planned-date">—</dd></div><div><dt>Valor</dt><dd id="budget-convert-planned-amount">—</dd></div></dl></section>
+          <section><h3>Documento real</h3><dl><div><dt>Destino</dt><dd id="budget-convert-destination">—</dd></div><div><dt>Vencimento e valor iniciais</dt><dd>Copiados da previsão; podem ser ajustados</dd></div></dl></section>
+        </div>
+        <div class="form-grid">
+          <label>Cadastro de fornecedor/cliente<select id="budget-convert-party-select"><option value="">Nome livre</option></select></label>
+          <label id="budget-convert-party-label">Credor / fornecedor<input id="budget-convert-party-name" maxlength="160" required autocomplete="off"></label>
+        </div>
+        <label>Descrição do documento<input id="budget-convert-description" maxlength="160" required autocomplete="off"></label>
+        <div class="form-grid">
+          <label>Nº do documento (opcional)<input id="budget-convert-number" maxlength="80" autocomplete="off"></label>
+          <label>Data de emissão<input id="budget-convert-issue-date" type="date" required></label>
+          <label>Competência<input id="budget-convert-competence" type="month" required></label>
+          <label>Vencimento real<input id="budget-convert-due-date" type="date" required></label>
+          <label>Valor real (R$)<input id="budget-convert-amount" inputmode="decimal" required autocomplete="off"></label>
+        </div>
+        <div class="form-grid">
+          <label id="budget-convert-classification-label">Classificação contábil<select id="budget-convert-classification" required></select></label>
+          <label id="budget-convert-control-label">Conta de controle<select id="budget-convert-control" required></select></label>
+          <label>Centro de custo (opcional)<select id="budget-convert-cost-center"></select></label>
+        </div>
+        <label>Observações<input id="budget-convert-notes" maxlength="1000" autocomplete="off"></label>
+        <section class="budget-confirmation" id="budget-convert-review" hidden aria-live="polite">
+          <h3>Confirmação final</h3>
+          <p id="budget-convert-review-summary"></p>
+          <p>Será criado um <strong>rascunho</strong> em Contas a Pagar/Receber. Não haverá reconhecimento, lançamento contábil, pagamento ou recebimento nesta ação.</p>
+        </section>
+        <section class="budget-confirmation budget-conversion-success" id="budget-convert-success" hidden aria-live="polite">
+          <h3>Vencimento efetivado</h3>
+          <p id="budget-convert-success-text"></p>
+          <button class="button button-quiet" id="budget-open-created-document" type="button">Abrir documento em Contas a Pagar/Receber</button>
+        </section>
+        <p class="form-error" id="budget-convert-error" role="alert" hidden></p>
+        <div class="dialog-actions" id="budget-convert-actions">
+          <button class="button button-quiet" data-close="budget-convert-dialog" type="button">Fechar</button>
+          <button class="button button-quiet" id="budget-convert-preview" type="button">Validar e revisar</button>
+          <button class="button button-primary" id="budget-convert-confirm" type="submit" disabled>Confirmar criação do rascunho</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="dialog" id="manual-dialog"><form id="manual-form">
+      <div class="dialog-heading"><div><p class="eyebrow">LIVRO DIÁRIO</p><h2>Novo lançamento manual</h2></div><button class="icon-button" data-close="manual-dialog" type="button" aria-label="Fechar">×</button></div>
+      <div class="form-grid"><label>Data de contabilização<input id="manual-date" type="date" required></label><label>Competência<input id="manual-period" type="month" required></label></div>
+      <label>Histórico<input id="manual-description" maxlength="240" required autocomplete="off"></label>
+      <div class="manual-lines-heading"><h3>Linhas contábeis</h3><button class="button button-quiet" id="add-manual-line" type="button">+ Adicionar linha</button></div>
+      <div id="manual-lines"></div>
+      <div class="entry-totals"><span>Débitos: <strong id="manual-debit-total">R$ 0,00</strong></span><span>Créditos: <strong id="manual-credit-total">R$ 0,00</strong></span></div>
+      <p class="field-hint">Cada linha recebe valor em apenas um lado. O servidor só grava lançamentos balanceados.</p><p class="form-error" id="manual-error" role="alert" hidden></p>
+      <div class="dialog-actions"><button class="button button-quiet" data-close="manual-dialog" type="button">Cancelar</button><button class="button button-primary" type="submit">Conferir e postar</button></div>
+    </form></dialog>
+
+    <dialog class="dialog" id="document-dialog"><form id="document-form">
+      <div class="dialog-heading"><div><p class="eyebrow" id="document-eyebrow">DOCUMENTO FINANCEIRO</p><h2 id="document-title">Novo documento</h2></div><button class="icon-button" data-close="document-dialog" type="button" aria-label="Fechar">×</button></div>
+      <label id="party-label" for="document-party">Credor / fornecedor</label>
+      <div class="document-party-field">
+        <div class="document-party-row">
+          <div class="party-autocomplete">
+            <input id="document-party" maxlength="160" required autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="document-party-options">
+            <ul class="party-suggestions" id="document-party-options" role="listbox" hidden></ul>
+          </div>
+          <button class="button button-quiet document-party-create" id="new-document-party" type="button">+ Cadastrar</button>
+        </div>
+        <p class="field-hint document-party-status" id="document-party-status" role="status" aria-live="polite">Informe um nome livre (até 120 caracteres) ou selecione um cadastro ativo.</p>
+      </div>
+      <label for="document-description">Descrição do documento</label><input id="document-description" maxlength="160" required autocomplete="off">
+      <div class="form-grid"><label>Nº do documento<input id="document-number" maxlength="80"></label><label>Valor (R$)<input id="document-amount" inputmode="decimal" placeholder="0,00" required></label></div>
+      <div class="form-grid"><label>Emissão<input id="document-issue-date" type="date" required></label><label>Vencimento / previsão<input id="document-due-date" type="date" required></label></div>
+      <div class="form-grid"><label>Competência<input id="document-competence" type="month" required></label><label>Centro de custo<select id="document-cost-center"><option value="">Sem centro de custo</option></select></label></div>
+      <div class="form-grid"><label id="classification-label">Conta de despesa/custo<select id="document-classification" required></select></label><label id="control-label">Conta de obrigação<select id="document-control" required></select></label></div>
+      <label>Observações<textarea id="document-notes" rows="2" maxlength="1000"></textarea></label>
+      <p class="field-hint">Salvar cria um rascunho operacional. A contabilização só ocorre ao confirmar o reconhecimento.</p><p class="form-error" id="document-error" role="alert" hidden></p>
+      <div class="dialog-actions"><button class="button button-quiet" data-close="document-dialog" type="button">Cancelar</button><button class="button button-primary" type="submit">Salvar rascunho</button></div>
+    </form></dialog>
+
+    <dialog class="dialog narrow-dialog" id="recognition-dialog"><form id="recognition-form">
+      <div class="dialog-heading"><div><p class="eyebrow">RECONHECIMENTO POR COMPETÊNCIA</p><h2>Confirmar contabilização</h2></div><button class="icon-button" data-close="recognition-dialog" type="button" aria-label="Fechar">×</button></div>
+      <p id="recognition-description"></p><label>Data de contabilização<input id="recognition-date" type="date" required></label><p class="field-hint">A competência contábil vem do documento. Esta data registra quando o lançamento é contabilizado.</p><p class="form-error" id="recognition-error" role="alert" hidden></p>
+      <div class="dialog-actions"><button class="button button-quiet" data-close="recognition-dialog" type="button">Cancelar</button><button class="button button-primary" type="submit">Reconhecer</button></div>
+    </form></dialog>
+
+    <dialog class="dialog narrow-dialog" id="settlement-dialog"><form id="settlement-form">
+      <div class="dialog-heading"><div><p class="eyebrow" id="settlement-eyebrow">LIQUIDAÇÃO</p><h2 id="settlement-title">Registrar pagamento</h2></div><button class="icon-button" data-close="settlement-dialog" type="button" aria-label="Fechar">×</button></div>
+      <p id="settlement-description"></p><label>Data<input id="settlement-date" type="date" required></label><label>Conta de caixa / banco<select id="settlement-cash-account" required></select></label><label>Valor liquidado (R$)<input id="settlement-amount" inputmode="decimal" required></label><label>Referência opcional<input id="settlement-reference" maxlength="120"></label><p class="field-hint">O valor não pode exceder o saldo em aberto. Diferenças por descontos, juros ou tarifas exigem lançamento contábil próprio.</p><p class="form-error" id="settlement-error" role="alert" hidden></p>
+      <div class="dialog-actions"><button class="button button-quiet" data-close="settlement-dialog" type="button">Cancelar</button><button class="button button-primary" type="submit">Confirmar</button></div>
+    </form></dialog>
+
+    <dialog class="dialog" id="catalog-dialog"><form id="catalog-form">
+      <div class="dialog-heading"><div><p class="eyebrow">CADASTROS</p><h2 id="catalog-title">Novo cadastro</h2></div><button class="icon-button" data-close="catalog-dialog" type="button" aria-label="Fechar">×</button></div>
+      <div id="catalog-fields"></div><p class="form-error" id="catalog-error" role="alert" hidden></p>
+      <div class="dialog-actions"><button class="button button-quiet" data-close="catalog-dialog" type="button">Cancelar</button><button class="button button-primary" type="submit">Salvar</button></div>
+    </form></dialog>
+
+    <dialog class="dialog party-dialog" id="party-dialog" aria-labelledby="party-dialog-title"><form id="party-form">
+      <div class="dialog-heading"><div><p class="eyebrow">CLIENTES E FORNECEDORES</p><h2 id="party-dialog-title">Nova pessoa/empresa</h2></div><button class="icon-button" data-close="party-dialog" type="button" aria-label="Fechar">×</button></div>
+      <p class="field-hint party-dialog-status" id="party-dialog-status" role="status" hidden></p>
+      <fieldset id="party-fields">
+        <div class="form-grid party-identity-grid">
+          <label for="party-person-type">Tipo de pessoa<select id="party-person-type" required><option value="individual">Pessoa física</option><option value="organization">Pessoa jurídica</option></select></label>
+          <label for="party-name">Nome / razão social<input id="party-name" maxlength="160" required autocomplete="name"></label>
+          <label for="party-tax-id" id="party-tax-id-label">CPF<input id="party-tax-id" maxlength="24" autocomplete="off" autocapitalize="characters" placeholder="Opcional" aria-describedby="party-tax-id-hint"><small class="party-input-hint" id="party-tax-id-hint">Pode informar com ou sem pontuação.</small></label>
+          <label for="party-trade-name">Nome fantasia (opcional)<input id="party-trade-name" maxlength="120" autocomplete="organization"></label>
+        </div>
+        <fieldset class="party-role-fieldset" aria-describedby="party-role-hint">
+          <legend>Papel no cadastro</legend>
+          <div class="party-role-options">
+            <label class="check-label" for="party-role-customer"><input id="party-role-customer" type="checkbox"> Cliente</label>
+            <label class="check-label" for="party-role-supplier"><input id="party-role-supplier" type="checkbox"> Fornecedor</label>
+          </div>
+          <p class="field-hint" id="party-role-hint">Selecione um ou os dois papéis.</p>
+        </fieldset>
+        <details class="party-extra-fields" id="party-extra-fields">
+          <summary>Contato e observações (opcional)</summary>
+          <div class="form-grid">
+            <label for="party-email">E-mail<input id="party-email" type="email" maxlength="254" autocomplete="email"></label>
+            <label for="party-phone">Telefone<input id="party-phone" type="tel" inputmode="tel" maxlength="32" autocomplete="tel"></label>
+          </div>
+          <label for="party-notes">Observações<textarea id="party-notes" rows="3" maxlength="1000"></textarea></label>
+        </details>
+      </fieldset>
+      <p class="form-error" id="party-error" role="alert" tabindex="-1" hidden></p>
+      <div class="dialog-actions"><button class="button button-quiet" data-close="party-dialog" type="button">Cancelar</button><button class="button button-primary" id="party-save" type="submit">Salvar cadastro</button></div>
+    </form></dialog>
+
+    <dialog class="dialog narrow-dialog" id="cost-center-dialog"><form id="cost-center-form">
+      <div class="dialog-heading"><div><p class="eyebrow">CENTRO DE CUSTO</p><h2 id="cost-center-title">Novo centro de custo</h2></div><button class="icon-button" data-close="cost-center-dialog" type="button" aria-label="Fechar">×</button></div>
+      <div class="form-grid"><label>Código<input id="center-code" maxlength="40" required></label><label>Nome<input id="center-name" maxlength="100" required></label></div><label>Centro superior (opcional)<select id="center-parent"><option value="">Sem superior</option></select></label><label>Descrição<textarea id="center-description" rows="2" maxlength="240"></textarea></label><label class="check-label"><input id="center-active" type="checkbox" checked> Ativo</label><p class="form-error" id="center-error" role="alert" hidden></p>
+      <div class="dialog-actions"><button class="button button-quiet" data-close="cost-center-dialog" type="button">Cancelar</button><button class="button button-primary" type="submit">Salvar centro</button></div>
+    </form></dialog>
+
+    <dialog class="dialog assistant-dialog" id="assistant-dialog" aria-labelledby="assistant-title">
+      <div class="assistant-dialog-body">
+        <div class="dialog-heading"><div><p class="eyebrow">PERGUNTAS E CONSULTAS</p><h2 id="assistant-title">Assistente Pro247</h2></div><div class="assistant-heading-actions"><button class="text-button" id="assistant-new-conversation" type="button">Nova conversa</button><button class="icon-button" data-close="assistant-dialog" type="button" aria-label="Fechar">×</button></div></div>
+        <p class="field-hint assistant-privacy">Perguntas gerais usam o contexto fixo do Pro247. Para consultar registros atuais, o servidor valida o JSON financeiro e envia à DeepSeek somente o contexto relevante. Pedidos para criar contas a pagar ou a receber continuam no Agente Pro247, onde você revisa e confirma a proposta antes de salvar o título como rascunho.</p>
+        <div class="assistant-key-required" id="assistant-key-required" hidden><span>Configure uma chave da API para conversar com o DeepSeek.</span><button class="button button-quiet" id="assistant-configure-key" type="button">Configurar chave</button></div>
+        <div class="assistant-messages" id="assistant-messages" aria-live="polite" aria-label="Conversa com o assistente"></div>
+        <form id="assistant-form" class="assistant-form">
+          <label class="visually-hidden" for="assistant-input">Sua pergunta ou descrição</label>
+          <textarea id="assistant-input" rows="3" maxlength="5000" placeholder="Ex.: O que diferencia caixa realizado de contas em aberto?" required></textarea>
+          <div class="assistant-composer-footer"><span class="field-hint">A resposta pode levar alguns segundos.</span><button class="button button-primary" id="assistant-submit" type="submit">Enviar</button></div>
+          <p class="form-error" id="assistant-error" role="alert" hidden></p>
+        </form>
+      </div>
+    </dialog>
+
+    <dialog class="dialog narrow-dialog" id="deepseek-settings-dialog" aria-labelledby="deepseek-settings-title">
+      <form id="deepseek-settings-form">
+        <div class="dialog-heading"><div><p class="eyebrow">INTEGRAÇÃO DE IA</p><h2 id="deepseek-settings-title">Configurar DeepSeek</h2></div><button class="icon-button" data-close="deepseek-settings-dialog" type="button" aria-label="Fechar">×</button></div>
+        <p class="small-note" id="deepseek-settings-status" role="status">Verificando configuração…</p>
+        <label for="deepseek-api-key">Chave de API<input id="deepseek-api-key" type="password" autocomplete="new-password" spellcheck="false" placeholder="Cole sua chave DeepSeek" required></label>
+        <p class="field-hint">A chave fica em um arquivo JSON local do seu perfil do Windows, sem criptografia da aplicação. Ela não é devolvida ao navegador nem incluída nos dados financeiros.</p>
+        <p class="form-error" id="deepseek-settings-error" role="alert" hidden></p>
+        <div class="dialog-actions settings-actions"><button class="button button-quiet" id="deepseek-remove-key" type="button" hidden>Remover chave</button><button class="button button-quiet" data-close="deepseek-settings-dialog" type="button">Cancelar</button><button class="button button-primary" id="deepseek-save-key" type="submit">Salvar chave</button></div>
+      </form>
+    </dialog>
+  </body>
+</html>

@@ -1,0 +1,2035 @@
+{
+  "schemaVersion": 3,
+  "currency": "BRL",
+  "defaultPeriod": "2026-10",
+  "degrees": [
+    {
+      "number": 1,
+      "name": "Ativo",
+      "id": "degree-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "number": 2,
+      "name": "Passivo",
+      "id": "degree-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "number": 3,
+      "name": "Patrimônio Líquido",
+      "id": "degree-3",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "number": 4,
+      "name": "Receitas",
+      "id": "degree-4",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "number": 5,
+      "name": "Custos",
+      "id": "degree-5",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "number": 6,
+      "name": "Despesas",
+      "id": "degree-6",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "subcategories": [
+    {
+      "id": "subcategory-1-1",
+      "number": 1,
+      "name": "Ativo Circulante",
+      "parentType": "degree",
+      "parentId": "degree-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-1-1-1",
+      "number": 1,
+      "name": "Disponibilidades",
+      "parentType": "subcategory",
+      "parentId": "subcategory-1-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-1-1-2",
+      "number": 2,
+      "name": "Contas Bancárias",
+      "parentType": "subcategory",
+      "parentId": "subcategory-1-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-1-1-3",
+      "number": 3,
+      "name": "Créditos a Receber",
+      "parentType": "subcategory",
+      "parentId": "subcategory-1-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-1-2",
+      "number": 2,
+      "name": "Ativo Não Circulante",
+      "parentType": "degree",
+      "parentId": "degree-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-1-2-1",
+      "number": 1,
+      "name": "Investimentos",
+      "parentType": "subcategory",
+      "parentId": "subcategory-1-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-2-1",
+      "number": 1,
+      "name": "Obrigações de Curto Prazo",
+      "parentType": "degree",
+      "parentId": "degree-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-2-1-1",
+      "number": 1,
+      "name": "Obrigações",
+      "parentType": "subcategory",
+      "parentId": "subcategory-2-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-2-1-2",
+      "number": 2,
+      "name": "Cartões",
+      "parentType": "subcategory",
+      "parentId": "subcategory-2-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-2-2",
+      "number": 2,
+      "name": "Empréstimos e Financiamentos",
+      "parentType": "degree",
+      "parentId": "degree-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-2-2-1",
+      "number": 1,
+      "name": "Empréstimos Pessoais",
+      "parentType": "subcategory",
+      "parentId": "subcategory-2-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-3-1",
+      "number": 1,
+      "name": "Patrimônio Acumulado",
+      "parentType": "degree",
+      "parentId": "degree-3",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-3-1-1",
+      "number": 1,
+      "name": "Patrimônio",
+      "parentType": "subcategory",
+      "parentId": "subcategory-3-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-4-1",
+      "number": 1,
+      "name": "Receitas de Trabalho",
+      "parentType": "degree",
+      "parentId": "degree-4",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-4-1-1",
+      "number": 1,
+      "name": "Salários",
+      "parentType": "subcategory",
+      "parentId": "subcategory-4-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-4-2",
+      "number": 2,
+      "name": "Receitas Financeiras",
+      "parentType": "degree",
+      "parentId": "degree-4",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-4-2-1",
+      "number": 1,
+      "name": "Rendimentos",
+      "parentType": "subcategory",
+      "parentId": "subcategory-4-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-5-1",
+      "number": 1,
+      "name": "Custos Pessoais",
+      "parentType": "degree",
+      "parentId": "degree-5",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-5-1-1",
+      "number": 1,
+      "name": "Custos Diretos",
+      "parentType": "subcategory",
+      "parentId": "subcategory-5-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-6-1",
+      "number": 1,
+      "name": "Moradia",
+      "parentType": "degree",
+      "parentId": "degree-6",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-6-1-1",
+      "number": 1,
+      "name": "Serviços",
+      "parentType": "subcategory",
+      "parentId": "subcategory-6-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-6-1-2",
+      "number": 2,
+      "name": "Saúde",
+      "parentType": "subcategory",
+      "parentId": "subcategory-6-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-6-1-3",
+      "number": 3,
+      "name": "Alimentação",
+      "parentType": "subcategory",
+      "parentId": "subcategory-6-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-6-1-4",
+      "number": 4,
+      "name": "Transporte",
+      "parentType": "subcategory",
+      "parentId": "subcategory-6-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-6-2",
+      "number": 2,
+      "name": "Profissionais",
+      "parentType": "degree",
+      "parentId": "degree-6",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-6-2-1",
+      "number": 1,
+      "name": "Serviços Profissionais",
+      "parentType": "subcategory",
+      "parentId": "subcategory-6-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-6-3",
+      "number": 3,
+      "name": "Financeiras",
+      "parentType": "degree",
+      "parentId": "degree-6",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "subcategory-6-3-1",
+      "number": 1,
+      "name": "Taxas e Juros",
+      "parentType": "subcategory",
+      "parentId": "subcategory-6-3",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "planAccounts": [
+    {
+      "id": "account-1-1-2-1",
+      "number": 1,
+      "name": "CEF",
+      "subcategoryId": "subcategory-1-1-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": true,
+      "postable": true,
+      "liquidityClass": "current-asset"
+    },
+    {
+      "id": "account-1-1-2-2",
+      "number": 2,
+      "name": "Itaú",
+      "subcategoryId": "subcategory-1-1-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": true,
+      "postable": true,
+      "liquidityClass": "current-asset"
+    },
+    {
+      "id": "account-1-1-2-3",
+      "number": 3,
+      "name": "Nubank",
+      "subcategoryId": "subcategory-1-1-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": true,
+      "postable": true,
+      "liquidityClass": "current-asset"
+    },
+    {
+      "id": "account-1-1-2-4",
+      "number": 4,
+      "name": "MercadoPago",
+      "subcategoryId": "subcategory-1-1-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": true,
+      "postable": true,
+      "liquidityClass": "current-asset"
+    },
+    {
+      "id": "account-1-2-1-1",
+      "number": 1,
+      "name": "Investimento Pessoal",
+      "subcategoryId": "subcategory-1-2-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": false,
+      "postable": true,
+      "liquidityClass": "other-noncurrent-asset"
+    },
+    {
+      "id": "account-2-1-1-1",
+      "number": 1,
+      "name": "Serviços a Pagar",
+      "subcategoryId": "subcategory-2-1-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "credit",
+      "cashEquivalent": false,
+      "postable": true,
+      "liquidityClass": "current-liability"
+    },
+    {
+      "id": "account-2-1-2-1",
+      "number": 1,
+      "name": "Faturas de Cartões",
+      "subcategoryId": "subcategory-2-1-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "credit",
+      "cashEquivalent": false,
+      "postable": true,
+      "liquidityClass": "current-liability"
+    },
+    {
+      "id": "account-2-2-1-1",
+      "number": 1,
+      "name": "Empréstimos Pessoais",
+      "subcategoryId": "subcategory-2-2-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "credit",
+      "cashEquivalent": false,
+      "postable": true,
+      "liquidityClass": "long-term-liability"
+    },
+    {
+      "id": "account-3-1-1-1",
+      "number": 1,
+      "name": "Patrimônio Pessoal",
+      "subcategoryId": "subcategory-3-1-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "credit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "account-3-1-1-2",
+      "number": 2,
+      "name": "Saldos de Abertura",
+      "subcategoryId": "subcategory-3-1-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "credit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "account-4-1-1-1",
+      "number": 1,
+      "name": "Adiantamento Salarial",
+      "subcategoryId": "subcategory-4-1-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "credit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "account-4-1-1-2",
+      "number": 2,
+      "name": "Pagamento Salarial",
+      "subcategoryId": "subcategory-4-1-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "credit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "account-4-2-1-1",
+      "number": 1,
+      "name": "Juros e Rendimentos",
+      "subcategoryId": "subcategory-4-2-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "credit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "account-5-1-1-1",
+      "number": 1,
+      "name": "Materiais",
+      "subcategoryId": "subcategory-5-1-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "account-5-1-1-2",
+      "number": 2,
+      "name": "Serviços de Terceiros",
+      "subcategoryId": "subcategory-5-1-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "account-6-1-1-1",
+      "number": 1,
+      "name": "Internet",
+      "subcategoryId": "subcategory-6-1-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "account-6-1-1-2",
+      "number": 2,
+      "name": "Energia",
+      "subcategoryId": "subcategory-6-1-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "account-6-1-2-1",
+      "number": 1,
+      "name": "Plano de Saúde",
+      "subcategoryId": "subcategory-6-1-2",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "account-6-1-3-1",
+      "number": 1,
+      "name": "Supermercado",
+      "subcategoryId": "subcategory-6-1-3",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "account-6-1-4-1",
+      "number": 1,
+      "name": "Combustível",
+      "subcategoryId": "subcategory-6-1-4",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "account-6-2-1-1",
+      "number": 1,
+      "name": "Contador",
+      "subcategoryId": "subcategory-6-2-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": false,
+      "postable": true
+    },
+    {
+      "id": "plano-contas-ativo-contas-a-receber-v3",
+      "number": 1,
+      "name": "Contas a Receber",
+      "subcategoryId": "subcategory-1-1-3",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "updatedAt": "2026-10-14T12:00:00.000Z",
+      "normalBalance": "debit",
+      "cashEquivalent": false,
+      "postable": true,
+      "liquidityClass": "current-asset"
+    },
+    {
+      "id": "account-4-1-1-3",
+      "number": 3,
+      "name": "Serviços de Consultoria",
+      "subcategoryId": "subcategory-4-1-1",
+      "normalBalance": "credit",
+      "cashEquivalent": false,
+      "postable": true,
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "updatedAt": "2026-10-14T12:00:00.000Z"
+    }
+  ],
+  "costCenters": [
+    {
+      "id": "demo-center-home",
+      "code": "DEMO-01",
+      "name": "Casa",
+      "description": "Centro demonstrativo de despesas da casa",
+      "active": true,
+      "parentId": null,
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "updatedAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "demo-center-mobility",
+      "code": "DEMO-02",
+      "name": "Mobilidade",
+      "description": "Centro demonstrativo de transporte",
+      "active": true,
+      "parentId": null,
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "updatedAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "demo-center-work",
+      "code": "DEMO-03",
+      "name": "Trabalho",
+      "description": "Centro demonstrativo de atividades profissionais",
+      "active": true,
+      "parentId": null,
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "updatedAt": "2026-10-14T12:00:00.000Z"
+    }
+  ],
+  "journalEntries": [
+    {
+      "id": "demo-entry-abertura",
+      "entryNumber": 1,
+      "postingDate": "2026-10-01",
+      "period": "2026-10",
+      "description": "DEMO — saldos bancários iniciais contra patrimônio líquido de abertura",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:abertura",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "843564fe-2eba-486b-ad1a-90c50720681c",
+          "accountId": "account-1-1-2-1",
+          "debitCents": 125000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "7017b59a-c37a-43b8-9d4b-ebe1761326a7",
+          "accountId": "account-1-1-2-2",
+          "debitCents": 250000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "4506cc40-f71c-4908-a5bf-81d341fbc011",
+          "accountId": "account-1-1-2-3",
+          "debitCents": 100000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "9b139a87-2139-4866-955f-927e249a19b7",
+          "accountId": "account-1-1-2-4",
+          "debitCents": 25000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "0aa3e6ad-d4c2-4413-b262-b9e038baca14",
+          "accountId": "account-3-1-1-2",
+          "debitCents": 0,
+          "creditCents": 500000,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "demo-entry-salario",
+      "entryNumber": 2,
+      "postingDate": "2026-10-02",
+      "period": "2026-10",
+      "description": "DEMO — recebimento de salário em conta bancária",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:salario",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "594a0247-adb1-4296-8d61-372b10d8731f",
+          "accountId": "account-1-1-2-1",
+          "debitCents": 320000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "1d0a21ae-38d3-490a-b6db-5608d5b55695",
+          "accountId": "account-4-1-1-2",
+          "debitCents": 0,
+          "creditCents": 320000,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "demo-entry-supermercado",
+      "entryNumber": 3,
+      "postingDate": "2026-10-03",
+      "period": "2026-10",
+      "description": "DEMO — compras de supermercado",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:supermercado",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "83063934-f951-4fd0-a1a0-bf9d43e1af33",
+          "accountId": "account-6-1-3-1",
+          "debitCents": 48570,
+          "creditCents": 0,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-home",
+              "amountCents": 48570
+            }
+          ]
+        },
+        {
+          "id": "2068c9d5-e43d-4855-a26c-a87ab2d56262",
+          "accountId": "account-1-1-2-3",
+          "debitCents": 0,
+          "creditCents": 48570,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "demo-entry-combustivel",
+      "entryNumber": 4,
+      "postingDate": "2026-10-04",
+      "period": "2026-10",
+      "description": "DEMO — abastecimento de veículo",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:combustivel",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "f8796732-9666-4cb5-a8c8-55e00ad005e2",
+          "accountId": "account-6-1-4-1",
+          "debitCents": 22000,
+          "creditCents": 0,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-mobility",
+              "amountCents": 22000
+            }
+          ]
+        },
+        {
+          "id": "ea5b20f3-0980-4b29-aa65-31dfe46a4a1e",
+          "accountId": "account-1-1-2-2",
+          "debitCents": 0,
+          "creditCents": 22000,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "44eef813-ccb0-4bfe-808a-ec193c26689f",
+      "entryNumber": 5,
+      "postingDate": "2026-10-05",
+      "period": "2026-10",
+      "description": "Reconhecimento: Plano mensal de internet",
+      "originModule": "contas-a-pagar",
+      "sourceRecordId": "cde7061a-9647-4de3-ba56-43752bd31ebc",
+      "sourceEventType": "recognition",
+      "sourceKey": "payable-recognition:cde7061a-9647-4de3-ba56-43752bd31ebc",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "a1e58004-cd54-4e05-bbdf-a640c6eb79b0",
+          "accountId": "account-6-1-1-1",
+          "debitCents": 15990,
+          "creditCents": 0,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-home",
+              "amountCents": 15990
+            }
+          ]
+        },
+        {
+          "id": "bc91b332-c75b-42b1-8721-baaf4a498871",
+          "accountId": "account-2-1-1-1",
+          "debitCents": 0,
+          "creditCents": 15990,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "1ffe7344-9aef-4c07-89e8-8611ab8de0ab",
+      "entryNumber": 6,
+      "postingDate": "2026-10-08",
+      "period": "2026-10",
+      "description": "Pagamento: Plano mensal de internet",
+      "originModule": "contas-a-pagar",
+      "sourceRecordId": "cde7061a-9647-4de3-ba56-43752bd31ebc",
+      "sourceEventType": "settlement",
+      "sourceKey": "payable-settlement:cde7061a-9647-4de3-ba56-43752bd31ebc:demo-payable-settlement-internet-parcial-1",
+      "idempotencyKey": "demo-payable-settlement-internet-parcial-1",
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "4ea3e63a-ed6b-42d5-b670-4b17ad35a8d9",
+          "accountId": "account-2-1-1-1",
+          "debitCents": 10000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "96f7cbb2-64c8-46f3-a19b-933a9f5b6b2c",
+          "accountId": "account-1-1-2-1",
+          "debitCents": 0,
+          "creditCents": 10000,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-home",
+              "amountCents": 10000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8b764d0d-f279-48b9-b1ec-cbc8a081f712",
+      "entryNumber": 7,
+      "postingDate": "2026-10-06",
+      "period": "2026-10",
+      "description": "Reconhecimento: Serviço de consultoria de outubro",
+      "originModule": "contas-a-receber",
+      "sourceRecordId": "c18e1b4e-b486-4649-a60a-3743bea8e56c",
+      "sourceEventType": "recognition",
+      "sourceKey": "receivable-recognition:c18e1b4e-b486-4649-a60a-3743bea8e56c",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "89a5311d-be61-4139-b436-f4ebc5893f1e",
+          "accountId": "plano-contas-ativo-contas-a-receber-v3",
+          "debitCents": 180000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "db3dafdd-c28c-4374-a512-badbfe515b18",
+          "accountId": "account-4-1-1-3",
+          "debitCents": 0,
+          "creditCents": 180000,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-work",
+              "amountCents": 180000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "92cd8651-5b66-4091-87d8-48b5050433b6",
+      "entryNumber": 8,
+      "postingDate": "2026-10-12",
+      "period": "2026-10",
+      "description": "Recebimento: Serviço de consultoria de outubro",
+      "originModule": "contas-a-receber",
+      "sourceRecordId": "c18e1b4e-b486-4649-a60a-3743bea8e56c",
+      "sourceEventType": "collection",
+      "sourceKey": "receivable-collection:c18e1b4e-b486-4649-a60a-3743bea8e56c:demo-receivable-collection-consultoria-parcial-1",
+      "idempotencyKey": "demo-receivable-collection-consultoria-parcial-1",
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "438fcc61-1d7d-4e10-8cab-e978eda4d379",
+          "accountId": "account-1-1-2-3",
+          "debitCents": 72000,
+          "creditCents": 0,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-work",
+              "amountCents": 72000
+            }
+          ]
+        },
+        {
+          "id": "76cfbf02-4767-44f5-bf17-22b52cc0bf0f",
+          "accountId": "plano-contas-ativo-contas-a-receber-v3",
+          "debitCents": 0,
+          "creditCents": 72000,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "demo-entry-materiais-projeto",
+      "entryNumber": 9,
+      "postingDate": "2026-10-07",
+      "period": "2026-10",
+      "description": "DEMO — materiais para atividade profissional",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:materiais-projeto",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "a3ac0727-96be-414d-9e63-ccd8d8b1e030",
+          "accountId": "account-5-1-1-1",
+          "debitCents": 50000,
+          "creditCents": 0,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-work",
+              "amountCents": 50000
+            }
+          ]
+        },
+        {
+          "id": "a6d5840b-55e9-4d90-92b9-1fe4669d3de2",
+          "accountId": "account-1-1-2-1",
+          "debitCents": 0,
+          "creditCents": 50000,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "demo-entry-transferencia-interna",
+      "entryNumber": 10,
+      "postingDate": "2026-10-09",
+      "period": "2026-10",
+      "description": "DEMO — transferência interna Itaú para MercadoPago",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:transferencia-interna",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "b6f03238-e61d-41c7-8c26-f74074f7a132",
+          "accountId": "account-1-1-2-4",
+          "debitCents": 30000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "75300a61-2568-47b4-ae9d-5d0f41f5fa89",
+          "accountId": "account-1-1-2-2",
+          "debitCents": 0,
+          "creditCents": 30000,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "demo-entry-energia",
+      "entryNumber": 11,
+      "postingDate": "2026-10-10",
+      "period": "2026-10",
+      "description": "DEMO — pagamento da conta de energia",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:energia",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "f17e73e8-4c1d-4273-a098-119c588f6ce8",
+          "accountId": "account-6-1-1-2",
+          "debitCents": 24375,
+          "creditCents": 0,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-home",
+              "amountCents": 24375
+            }
+          ]
+        },
+        {
+          "id": "a57712e4-1894-4f75-8337-f51a8e49c5d2",
+          "accountId": "account-1-1-2-1",
+          "debitCents": 0,
+          "creditCents": 24375,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "demo-entry-emprestimo-recebido",
+      "entryNumber": 12,
+      "postingDate": "2026-10-11",
+      "period": "2026-10",
+      "description": "DEMO — crédito de empréstimo pessoal recebido no Itaú",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:emprestimo-recebido",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "be2111e8-c8ae-4ace-a936-dbc3275442e4",
+          "accountId": "account-1-1-2-2",
+          "debitCents": 250000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "a3ae7ba0-c1dc-480e-9591-5813796199d0",
+          "accountId": "account-2-2-1-1",
+          "debitCents": 0,
+          "creditCents": 250000,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "4bb1de20-45f0-4d6f-a2ce-0cf1a5583cf7",
+      "entryNumber": 13,
+      "postingDate": "2026-10-12",
+      "period": "2026-10",
+      "description": "Reconhecimento: Etapa final de projeto profissional",
+      "originModule": "contas-a-receber",
+      "sourceRecordId": "fd3a2031-1468-4779-8596-27072e448163",
+      "sourceEventType": "recognition",
+      "sourceKey": "receivable-recognition:fd3a2031-1468-4779-8596-27072e448163",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "3c1ded94-8e22-49e6-bb6f-c13d71d7a086",
+          "accountId": "plano-contas-ativo-contas-a-receber-v3",
+          "debitCents": 90000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "6e1f8de5-8c93-4d78-9c57-0d7d02ded9ca",
+          "accountId": "account-4-1-1-3",
+          "debitCents": 0,
+          "creditCents": 90000,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-work",
+              "amountCents": 90000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "demo-entry-recebimento-juros",
+      "entryNumber": 14,
+      "postingDate": "2026-10-12",
+      "period": "2026-10",
+      "description": "DEMO — rendimento financeiro recebido",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:recebimento-juros",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "e5823543-f677-4aa6-aee0-df9152309e55",
+          "accountId": "account-1-1-2-4",
+          "debitCents": 850,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "02191214-85a4-4b83-8c21-3f91794447dc",
+          "accountId": "account-4-2-1-1",
+          "debitCents": 0,
+          "creditCents": 850,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "demo-entry-compra-investimento",
+      "entryNumber": 15,
+      "postingDate": "2026-10-13",
+      "period": "2026-10",
+      "description": "DEMO — aplicação em investimento pessoal",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:compra-investimento",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "06fa7a85-6c33-41e2-bc05-99d0074b61ec",
+          "accountId": "account-1-2-1-1",
+          "debitCents": 70000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "87788a7c-bc19-471d-831b-ad72f1cb7358",
+          "accountId": "account-1-1-2-2",
+          "debitCents": 0,
+          "creditCents": 70000,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "demo-entry-saude",
+      "entryNumber": 16,
+      "postingDate": "2026-10-13",
+      "period": "2026-10",
+      "description": "DEMO — mensalidade de plano de saúde",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:saude",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "a4b12d83-c7eb-459b-8020-64c8fad39729",
+          "accountId": "account-6-1-2-1",
+          "debitCents": 36990,
+          "creditCents": 0,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-home",
+              "amountCents": 36990
+            }
+          ]
+        },
+        {
+          "id": "9205758d-e5bf-4f9f-b702-2bcc3f707281",
+          "accountId": "account-1-1-2-3",
+          "debitCents": 0,
+          "creditCents": 36990,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "demo-entry-transporte",
+      "entryNumber": 17,
+      "postingDate": "2026-10-14",
+      "period": "2026-10",
+      "description": "DEMO — corrida de transporte por aplicativo",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:transporte",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "160a4fc4-b225-46b6-b730-bd890e452409",
+          "accountId": "account-6-1-4-1",
+          "debitCents": 6130,
+          "creditCents": 0,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-mobility",
+              "amountCents": 6130
+            }
+          ]
+        },
+        {
+          "id": "520aea76-ae0e-4a42-9b85-7ac4d8bdbf4e",
+          "accountId": "account-1-1-2-3",
+          "debitCents": 0,
+          "creditCents": 6130,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "fd56ddd1-59f6-4725-b867-8103008910e7",
+      "entryNumber": 18,
+      "postingDate": "2026-10-14",
+      "period": "2026-10",
+      "description": "Reconhecimento: Atendimento de saúde com vencimento futuro",
+      "originModule": "contas-a-pagar",
+      "sourceRecordId": "73172e1c-ee66-438a-84cf-9f050568c16b",
+      "sourceEventType": "recognition",
+      "sourceKey": "payable-recognition:73172e1c-ee66-438a-84cf-9f050568c16b",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "79f72869-d0ba-46f9-8176-6e64a08349d7",
+          "accountId": "account-6-1-2-1",
+          "debitCents": 28500,
+          "creditCents": 0,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-home",
+              "amountCents": 28500
+            }
+          ]
+        },
+        {
+          "id": "20f3647b-5e98-4680-9150-ddf883a95d7e",
+          "accountId": "account-2-1-1-1",
+          "debitCents": 0,
+          "creditCents": 28500,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "demo-entry-amortizacao-emprestimo",
+      "entryNumber": 19,
+      "postingDate": "2026-10-14",
+      "period": "2026-10",
+      "description": "DEMO — amortização parcial do empréstimo pessoal",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "sourceEventType": null,
+      "sourceKey": "demo:outubro-2026:amortizacao-emprestimo",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "postedAt": "2026-10-14T12:00:00.000Z",
+      "lines": [
+        {
+          "id": "a1a7eb6b-43f9-4b46-930b-b62d68ab89a3",
+          "accountId": "account-2-2-1-1",
+          "debitCents": 30000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "71f038da-ee00-4ced-8766-073c77a40198",
+          "accountId": "account-1-1-2-2",
+          "debitCents": 0,
+          "creditCents": 30000,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "d302a003-3cdc-4995-b507-1ab936227023",
+      "entryNumber": 20,
+      "postingDate": "2026-10-16",
+      "period": "2026-10",
+      "description": "Reconhecimento: tst",
+      "originModule": "contas-a-pagar",
+      "sourceRecordId": "83c4fc51-0e15-4e14-80c0-5ce91e17670d",
+      "sourceEventType": "recognition",
+      "sourceKey": "payable-recognition:83c4fc51-0e15-4e14-80c0-5ce91e17670d",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-16T20:39:07.784Z",
+      "postedAt": "2026-10-16T20:39:07.784Z",
+      "lines": [
+        {
+          "id": "e4b9b738-24d7-4df3-8687-c06441059167",
+          "accountId": "account-6-1-4-1",
+          "debitCents": 2300,
+          "creditCents": 0,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-home",
+              "amountCents": 2300
+            }
+          ]
+        },
+        {
+          "id": "e57ffd2c-3a7b-401e-be81-5f5735e38317",
+          "accountId": "account-2-1-1-1",
+          "debitCents": 0,
+          "creditCents": 2300,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "2f2f5880-6893-4e53-a2af-0d526d61dd20",
+      "entryNumber": 21,
+      "postingDate": "2026-10-17",
+      "period": "2026-11",
+      "description": "Reconhecimento: Conta de luz",
+      "originModule": "contas-a-pagar",
+      "sourceRecordId": "fc9a8b90-f8ec-457b-8f1b-78ba67b71486",
+      "sourceEventType": "recognition",
+      "sourceKey": "payable-recognition:fc9a8b90-f8ec-457b-8f1b-78ba67b71486",
+      "idempotencyKey": null,
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-18T00:35:55.853Z",
+      "postedAt": "2026-10-18T00:35:55.853Z",
+      "lines": [
+        {
+          "id": "dbed8589-44c5-4b61-ab0d-b8fa141010fc",
+          "accountId": "account-6-1-1-2",
+          "debitCents": 34000,
+          "creditCents": 0,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-mobility",
+              "amountCents": 34000
+            }
+          ]
+        },
+        {
+          "id": "cbaec829-6442-4f6e-af7e-47a59d7d5e8a",
+          "accountId": "account-2-1-1-1",
+          "debitCents": 0,
+          "creditCents": 34000,
+          "costCenterAllocations": []
+        }
+      ]
+    },
+    {
+      "id": "f377ab4e-f00e-41ab-bbfc-13b42f3498c5",
+      "entryNumber": 22,
+      "postingDate": "2026-10-17",
+      "period": "2026-10",
+      "description": "Pagamento: Conta de luz",
+      "originModule": "contas-a-pagar",
+      "sourceRecordId": "fc9a8b90-f8ec-457b-8f1b-78ba67b71486",
+      "sourceEventType": "settlement",
+      "sourceKey": "payable-settlement:fc9a8b90-f8ec-457b-8f1b-78ba67b71486:payable:fc9a8b90-f8ec-457b-8f1b-78ba67b71486:1611a604-b81b-46a6-b013-8b8e50a11df5",
+      "idempotencyKey": "payable:fc9a8b90-f8ec-457b-8f1b-78ba67b71486:1611a604-b81b-46a6-b013-8b8e50a11df5",
+      "reversalOfEntryId": null,
+      "status": "posted",
+      "createdAt": "2026-10-18T00:36:03.387Z",
+      "postedAt": "2026-10-18T00:36:03.387Z",
+      "lines": [
+        {
+          "id": "ea0a59a5-bae0-4707-9734-622a9acefce6",
+          "accountId": "account-2-1-1-1",
+          "debitCents": 34000,
+          "creditCents": 0,
+          "costCenterAllocations": []
+        },
+        {
+          "id": "4e48835e-622f-4c38-be33-0d49b720918c",
+          "accountId": "account-1-1-2-2",
+          "debitCents": 0,
+          "creditCents": 34000,
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-mobility",
+              "amountCents": 34000
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "payables": [
+    {
+      "id": "cde7061a-9647-4de3-ba56-43752bd31ebc",
+      "idempotencyKey": "demo-payable-internet-parcial",
+      "creditor": "Conexão Bairro — fornecedor simulado",
+      "description": "Plano mensal de internet",
+      "documentNumber": "DEMO-P-internet-parcial",
+      "issueDate": "2026-10-05",
+      "dueDate": "2026-10-20",
+      "competencePeriod": "2026-10",
+      "originalAmountCents": 15990,
+      "expenseAccountId": "account-6-1-1-1",
+      "liabilityAccountId": "account-2-1-1-1",
+      "costCenterId": "demo-center-home",
+      "costCenterAllocations": [
+        {
+          "costCenterId": "demo-center-home",
+          "amountCents": 15990
+        }
+      ],
+      "notes": "Documento fictício criado apenas para demonstração.",
+      "status": "partially_paid",
+      "postingStatus": "posted",
+      "recognitionEntryId": "44eef813-ccb0-4bfe-808a-ec193c26689f",
+      "settlements": [
+        {
+          "id": "d6320cee-1ae7-4df2-9dd2-8eb5d9cf0b37",
+          "idempotencyKey": "demo-payable-settlement-internet-parcial-1",
+          "date": "2026-10-08",
+          "amountCents": 10000,
+          "cashAccountId": "account-1-1-2-1",
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-home",
+              "amountCents": 10000
+            }
+          ],
+          "reference": "Pagamento parcial demonstrativo",
+          "journalEntryId": "1ffe7344-9aef-4c07-89e8-8611ab8de0ab",
+          "createdAt": "2026-10-14T12:00:00.000Z"
+        }
+      ],
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "updatedAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "73172e1c-ee66-438a-84cf-9f050568c16b",
+      "idempotencyKey": "demo-payable-saude-em-aberto",
+      "creditor": "Clínica Horizonte — fornecedor simulado",
+      "description": "Atendimento de saúde com vencimento futuro",
+      "documentNumber": "DEMO-P-saude-em-aberto",
+      "issueDate": "2026-10-14",
+      "dueDate": "2026-10-28",
+      "competencePeriod": "2026-10",
+      "originalAmountCents": 28500,
+      "expenseAccountId": "account-6-1-2-1",
+      "liabilityAccountId": "account-2-1-1-1",
+      "costCenterId": "demo-center-home",
+      "costCenterAllocations": [
+        {
+          "costCenterId": "demo-center-home",
+          "amountCents": 28500
+        }
+      ],
+      "notes": "Documento fictício criado apenas para demonstração.",
+      "status": "open",
+      "postingStatus": "posted",
+      "recognitionEntryId": "fd56ddd1-59f6-4725-b867-8103008910e7",
+      "settlements": [],
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "updatedAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "ff18d440-b1fc-403c-921e-aebd06be9476",
+      "idempotencyKey": "payable:86190e34-c3cd-4d0e-8574-544902d9192f",
+      "creditor": "Provedor de internet",
+      "description": "Internet",
+      "documentNumber": "",
+      "issueDate": "2026-10-01",
+      "dueDate": "2026-10-20",
+      "competencePeriod": "2026-10",
+      "originalAmountCents": 20000,
+      "expenseAccountId": "account-6-1-1-1",
+      "liabilityAccountId": "account-2-1-1-1",
+      "costCenterId": null,
+      "costCenterAllocations": [],
+      "notes": "Sugestão gerada pelo assistente; revise antes de salvar como rascunho.",
+      "status": "draft",
+      "postingStatus": "draft",
+      "recognitionEntryId": null,
+      "settlements": [],
+      "createdAt": "2026-10-15T10:47:32.972Z",
+      "updatedAt": "2026-10-15T10:47:32.972Z"
+    },
+    {
+      "id": "a2bfe3f4-7b6a-4f82-b213-0f5dd0abe993",
+      "idempotencyKey": "payable:bae0ed61-5904-465a-a752-b3994a10d096",
+      "creditor": "Operadora de plano de saúde",
+      "description": "Mensalidade do plano de saúde",
+      "documentNumber": "",
+      "issueDate": "2026-10-15",
+      "dueDate": "2026-10-30",
+      "competencePeriod": "2026-10",
+      "originalAmountCents": 50000,
+      "expenseAccountId": "account-6-1-2-1",
+      "liabilityAccountId": "account-2-1-1-1",
+      "costCenterId": null,
+      "costCenterAllocations": [],
+      "notes": "Sugestão gerada para revisão. Fornecedor genérico, pois não foi informado.",
+      "status": "draft",
+      "postingStatus": "draft",
+      "recognitionEntryId": null,
+      "settlements": [],
+      "createdAt": "2026-10-16T02:26:47.406Z",
+      "updatedAt": "2026-10-16T02:26:47.406Z"
+    },
+    {
+      "id": "83c4fc51-0e15-4e14-80c0-5ce91e17670d",
+      "idempotencyKey": "payable:ab781b10-6d66-4913-9e12-c01423d86977",
+      "creditor": "Teste",
+      "partyId": "86099b1f-837d-42b4-a997-4436c794f302",
+      "description": "tst",
+      "documentNumber": "1",
+      "issueDate": "2026-10-16",
+      "dueDate": "2026-10-21",
+      "competencePeriod": "2026-10",
+      "originalAmountCents": 2300,
+      "expenseAccountId": "account-6-1-4-1",
+      "liabilityAccountId": "account-2-1-1-1",
+      "costCenterId": "demo-center-home",
+      "costCenterAllocations": [
+        {
+          "costCenterId": "demo-center-home",
+          "amountCents": 2300
+        }
+      ],
+      "notes": "tst",
+      "status": "open",
+      "postingStatus": "posted",
+      "recognitionEntryId": "d302a003-3cdc-4995-b507-1ab936227023",
+      "settlements": [],
+      "createdAt": "2026-10-16T20:38:57.489Z",
+      "updatedAt": "2026-10-16T20:39:07.784Z"
+    },
+    {
+      "id": "fc9a8b90-f8ec-457b-8f1b-78ba67b71486",
+      "idempotencyKey": "budget:53d269f3-34e3-410e-9965-c369133a7b08:dd715d4d-eee4-4546-821f-10e219608f0c",
+      "creditor": "Teste",
+      "partyId": "86099b1f-837d-42b4-a997-4436c794f302",
+      "description": "Conta de luz",
+      "documentNumber": "22",
+      "issueDate": "2026-10-17",
+      "dueDate": "2026-11-15",
+      "competencePeriod": "2026-11",
+      "originalAmountCents": 34000,
+      "expenseAccountId": "account-6-1-1-2",
+      "liabilityAccountId": "account-2-1-1-1",
+      "costCenterId": "demo-center-mobility",
+      "costCenterAllocations": [
+        {
+          "costCenterId": "demo-center-mobility",
+          "amountCents": 34000
+        }
+      ],
+      "notes": "",
+      "status": "paid",
+      "postingStatus": "posted",
+      "recognitionEntryId": "2f2f5880-6893-4e53-a2af-0d526d61dd20",
+      "settlements": [
+        {
+          "id": "d55509df-ed4a-4e11-b872-f04f64eedc8a",
+          "idempotencyKey": "payable:fc9a8b90-f8ec-457b-8f1b-78ba67b71486:1611a604-b81b-46a6-b013-8b8e50a11df5",
+          "date": "2026-10-17",
+          "amountCents": 34000,
+          "cashAccountId": "account-1-1-2-2",
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-mobility",
+              "amountCents": 34000
+            }
+          ],
+          "reference": "",
+          "journalEntryId": "f377ab4e-f00e-41ab-bbfc-13b42f3498c5",
+          "createdAt": "2026-10-18T00:36:03.387Z"
+        }
+      ],
+      "createdAt": "2026-10-18T00:35:44.178Z",
+      "updatedAt": "2026-10-18T00:36:03.387Z"
+    }
+  ],
+  "receivables": [
+    {
+      "id": "c18e1b4e-b486-4649-a60a-3743bea8e56c",
+      "idempotencyKey": "demo-receivable-consultoria-parcial",
+      "debtor": "Cliente Oficina — pagador simulado",
+      "description": "Serviço de consultoria de outubro",
+      "documentNumber": "DEMO-R-consultoria-parcial",
+      "issueDate": "2026-10-06",
+      "dueDate": "2026-10-22",
+      "competencePeriod": "2026-10",
+      "originalAmountCents": 180000,
+      "revenueAccountId": "account-4-1-1-3",
+      "receivableAccountId": "plano-contas-ativo-contas-a-receber-v3",
+      "costCenterId": "demo-center-work",
+      "costCenterAllocations": [
+        {
+          "costCenterId": "demo-center-work",
+          "amountCents": 180000
+        }
+      ],
+      "recurringIncomeId": null,
+      "notes": "Documento fictício criado apenas para demonstração.",
+      "status": "partially_paid",
+      "postingStatus": "posted",
+      "recognitionEntryId": "8b764d0d-f279-48b9-b1ec-cbc8a081f712",
+      "collections": [
+        {
+          "id": "e6591f93-0a2a-41d6-b47b-9710088d2a98",
+          "idempotencyKey": "demo-receivable-collection-consultoria-parcial-1",
+          "date": "2026-10-12",
+          "amountCents": 72000,
+          "cashAccountId": "account-1-1-2-3",
+          "costCenterAllocations": [
+            {
+              "costCenterId": "demo-center-work",
+              "amountCents": 72000
+            }
+          ],
+          "reference": "Recebimento parcial demonstrativo",
+          "journalEntryId": "92cd8651-5b66-4091-87d8-48b5050433b6",
+          "createdAt": "2026-10-14T12:00:00.000Z"
+        }
+      ],
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "updatedAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "fd3a2031-1468-4779-8596-27072e448163",
+      "idempotencyKey": "demo-receivable-projeto-em-aberto",
+      "debtor": "Cliente Projeto — pagador simulado",
+      "description": "Etapa final de projeto profissional",
+      "documentNumber": "DEMO-R-projeto-em-aberto",
+      "issueDate": "2026-10-12",
+      "dueDate": "2026-10-30",
+      "competencePeriod": "2026-10",
+      "originalAmountCents": 90000,
+      "revenueAccountId": "account-4-1-1-3",
+      "receivableAccountId": "plano-contas-ativo-contas-a-receber-v3",
+      "costCenterId": "demo-center-work",
+      "costCenterAllocations": [
+        {
+          "costCenterId": "demo-center-work",
+          "amountCents": 90000
+        }
+      ],
+      "recurringIncomeId": null,
+      "notes": "Documento fictício criado apenas para demonstração.",
+      "status": "open",
+      "postingStatus": "posted",
+      "recognitionEntryId": "4bb1de20-45f0-4d6f-a2ce-0cf1a5583cf7",
+      "collections": [],
+      "createdAt": "2026-10-14T12:00:00.000Z",
+      "updatedAt": "2026-10-14T12:00:00.000Z"
+    }
+  ],
+  "recurringIncome": [],
+  "auditEvents": [
+    {
+      "id": "801cd3e7-6a75-46c3-a930-bc50d4d0f886",
+      "type": "journal-posted",
+      "recordId": "demo-entry-abertura",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "ca4d1438-ca06-4bce-9d9d-6e5338ae47c1",
+      "type": "journal-posted",
+      "recordId": "demo-entry-salario",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "18f5efdd-fd64-4aac-a328-1612a05ce221",
+      "type": "journal-posted",
+      "recordId": "demo-entry-supermercado",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "a4ad8e74-0981-4d59-879c-f4d4ca4446e1",
+      "type": "journal-posted",
+      "recordId": "demo-entry-combustivel",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "3c7a51bd-33c3-4b0d-b93f-b1faeee2abbe",
+      "type": "journal-posted",
+      "recordId": "44eef813-ccb0-4bfe-808a-ec193c26689f",
+      "originModule": "contas-a-pagar",
+      "sourceRecordId": "cde7061a-9647-4de3-ba56-43752bd31ebc",
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "463492f4-88f7-4744-9824-79ecba8d5ce1",
+      "type": "payable-recognized",
+      "recordId": "cde7061a-9647-4de3-ba56-43752bd31ebc",
+      "journalEntryId": "44eef813-ccb0-4bfe-808a-ec193c26689f",
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "619892d1-bbc1-4068-8194-5285b16179d6",
+      "type": "journal-posted",
+      "recordId": "1ffe7344-9aef-4c07-89e8-8611ab8de0ab",
+      "originModule": "contas-a-pagar",
+      "sourceRecordId": "cde7061a-9647-4de3-ba56-43752bd31ebc",
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "c360be13-e03d-4518-844b-e07c4c7ced9c",
+      "type": "payable-settled",
+      "recordId": "cde7061a-9647-4de3-ba56-43752bd31ebc",
+      "settlementId": "d6320cee-1ae7-4df2-9dd2-8eb5d9cf0b37",
+      "journalEntryId": "1ffe7344-9aef-4c07-89e8-8611ab8de0ab",
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "c8783921-0458-4ffb-86cf-57bb06c72752",
+      "type": "journal-posted",
+      "recordId": "8b764d0d-f279-48b9-b1ec-cbc8a081f712",
+      "originModule": "contas-a-receber",
+      "sourceRecordId": "c18e1b4e-b486-4649-a60a-3743bea8e56c",
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "46db2154-9939-4f0a-b2db-0c16970b597c",
+      "type": "receivable-recognized",
+      "recordId": "c18e1b4e-b486-4649-a60a-3743bea8e56c",
+      "journalEntryId": "8b764d0d-f279-48b9-b1ec-cbc8a081f712",
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "f3b2a5b6-c5ec-4983-97e9-988fc5fbb8f7",
+      "type": "journal-posted",
+      "recordId": "92cd8651-5b66-4091-87d8-48b5050433b6",
+      "originModule": "contas-a-receber",
+      "sourceRecordId": "c18e1b4e-b486-4649-a60a-3743bea8e56c",
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "c4f7e115-fe58-4cc9-ae58-c537fe7b0abb",
+      "type": "receivable-collected",
+      "recordId": "c18e1b4e-b486-4649-a60a-3743bea8e56c",
+      "collectionId": "e6591f93-0a2a-41d6-b47b-9710088d2a98",
+      "journalEntryId": "92cd8651-5b66-4091-87d8-48b5050433b6",
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "198713c0-7380-4d5d-90c8-8d81600376d4",
+      "type": "journal-posted",
+      "recordId": "demo-entry-materiais-projeto",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "94061379-1853-47ea-b62a-0fd5d0ab6eaf",
+      "type": "journal-posted",
+      "recordId": "demo-entry-transferencia-interna",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "3a8cea11-117c-4c8d-8a4e-92e17ed95d6c",
+      "type": "journal-posted",
+      "recordId": "demo-entry-energia",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "3d200364-5737-4706-8a24-0e2b375ed77d",
+      "type": "journal-posted",
+      "recordId": "demo-entry-emprestimo-recebido",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "4f11ffa0-f2fa-46fb-ad5a-cfff8456f5e3",
+      "type": "journal-posted",
+      "recordId": "4bb1de20-45f0-4d6f-a2ce-0cf1a5583cf7",
+      "originModule": "contas-a-receber",
+      "sourceRecordId": "fd3a2031-1468-4779-8596-27072e448163",
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "0712979a-a8d7-4be3-a483-d56fb14aab78",
+      "type": "receivable-recognized",
+      "recordId": "fd3a2031-1468-4779-8596-27072e448163",
+      "journalEntryId": "4bb1de20-45f0-4d6f-a2ce-0cf1a5583cf7",
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "730ed518-c824-484f-812b-b1f7a789b4fb",
+      "type": "journal-posted",
+      "recordId": "demo-entry-recebimento-juros",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "8654cdf1-434a-4209-8c79-2614ffc665de",
+      "type": "journal-posted",
+      "recordId": "demo-entry-compra-investimento",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "a6e099e7-b38d-489f-ba7a-40f81484194f",
+      "type": "journal-posted",
+      "recordId": "demo-entry-saude",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "4f3f8b67-3711-4116-bd36-53efec228b73",
+      "type": "journal-posted",
+      "recordId": "demo-entry-transporte",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "300ca743-17cc-44e9-a369-f181ed383b29",
+      "type": "journal-posted",
+      "recordId": "fd56ddd1-59f6-4725-b867-8103008910e7",
+      "originModule": "contas-a-pagar",
+      "sourceRecordId": "73172e1c-ee66-438a-84cf-9f050568c16b",
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "ebff7492-a355-4a5e-aefd-71ccca9841cc",
+      "type": "payable-recognized",
+      "recordId": "73172e1c-ee66-438a-84cf-9f050568c16b",
+      "journalEntryId": "fd56ddd1-59f6-4725-b867-8103008910e7",
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "76677018-a28a-48a8-b8b3-1634ae1fb2a7",
+      "type": "journal-posted",
+      "recordId": "demo-entry-amortizacao-emprestimo",
+      "originModule": "manual",
+      "sourceRecordId": null,
+      "occurredAt": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "id": "818d4af1-e240-4bf9-af93-60506c44c03f",
+      "type": "party-created",
+      "recordId": "86099b1f-837d-42b4-a997-4436c794f302",
+      "idempotencyKey": "e64e1ef0-8241-475d-a0a6-0ca70da7179e",
+      "occurredAt": "2026-10-16T20:38:22.446Z"
+    },
+    {
+      "id": "3a81b8a1-3c17-4a8e-8340-0366192dd037",
+      "type": "journal-posted",
+      "recordId": "d302a003-3cdc-4995-b507-1ab936227023",
+      "originModule": "contas-a-pagar",
+      "sourceRecordId": "83c4fc51-0e15-4e14-80c0-5ce91e17670d",
+      "occurredAt": "2026-10-16T20:39:07.784Z"
+    },
+    {
+      "id": "48237f4c-b06e-41c4-a13b-c9e4a8903119",
+      "type": "payable-recognized",
+      "recordId": "83c4fc51-0e15-4e14-80c0-5ce91e17670d",
+      "journalEntryId": "d302a003-3cdc-4995-b507-1ab936227023",
+      "occurredAt": "2026-10-16T20:39:07.784Z"
+    },
+    {
+      "id": "efbc8c46-c9e9-43c1-8243-483b7f8bd77e",
+      "type": "budget-created",
+      "recordId": "53d269f3-34e3-410e-9965-c369133a7b08",
+      "occurredAt": "2026-10-17T23:42:29.270Z",
+      "direction": "payable",
+      "occurrenceCount": 5
+    },
+    {
+      "id": "e2eb4d70-aedd-45f0-8e01-32c648ee0ae6",
+      "type": "budget-occurrence-converted",
+      "recordId": "53d269f3-34e3-410e-9965-c369133a7b08",
+      "occurrenceId": "dd715d4d-eee4-4546-821f-10e219608f0c",
+      "occurredAt": "2026-10-18T00:35:44.178Z",
+      "documentType": "payable",
+      "documentId": "fc9a8b90-f8ec-457b-8f1b-78ba67b71486",
+      "plannedDueDate": "2026-11-15",
+      "plannedAmountCents": 34000,
+      "effectiveDueDate": "2026-11-15",
+      "effectiveAmountCents": 34000
+    },
+    {
+      "id": "ea1bfd14-73e9-430a-bb96-98ef2ce56292",
+      "type": "journal-posted",
+      "recordId": "2f2f5880-6893-4e53-a2af-0d526d61dd20",
+      "originModule": "contas-a-pagar",
+      "sourceRecordId": "fc9a8b90-f8ec-457b-8f1b-78ba67b71486",
+      "occurredAt": "2026-10-18T00:35:55.853Z"
+    },
+    {
+      "id": "ae3a789f-8f87-45e6-95db-e20cbd844db7",
+      "type": "payable-recognized",
+      "recordId": "fc9a8b90-f8ec-457b-8f1b-78ba67b71486",
+      "journalEntryId": "2f2f5880-6893-4e53-a2af-0d526d61dd20",
+      "occurredAt": "2026-10-18T00:35:55.853Z"
+    },
+    {
+      "id": "5e98db26-d598-47eb-af4d-3d061eee3582",
+      "type": "journal-posted",
+      "recordId": "f377ab4e-f00e-41ab-bbfc-13b42f3498c5",
+      "originModule": "contas-a-pagar",
+      "sourceRecordId": "fc9a8b90-f8ec-457b-8f1b-78ba67b71486",
+      "occurredAt": "2026-10-18T00:36:03.387Z"
+    },
+    {
+      "id": "8f4c2ffe-6c93-491d-938f-1c3ad38ffabd",
+      "type": "payable-settled",
+      "recordId": "fc9a8b90-f8ec-457b-8f1b-78ba67b71486",
+      "settlementId": "d55509df-ed4a-4e11-b872-f04f64eedc8a",
+      "journalEntryId": "f377ab4e-f00e-41ab-bbfc-13b42f3498c5",
+      "occurredAt": "2026-10-18T00:36:03.387Z"
+    }
+  ],
+  "demoProfile": "fin180-demo-outubro-2026-v1",
+  "parties": [
+    {
+      "id": "86099b1f-837d-42b4-a997-4436c794f302",
+      "personType": "organization",
+      "name": "Teste",
+      "tradeName": "teste123",
+      "taxId": null,
+      "roles": [
+        "customer",
+        "supplier"
+      ],
+      "email": "",
+      "phone": "",
+      "notes": "",
+      "active": true,
+      "createdAt": "2026-10-16T20:38:22.446Z",
+      "updatedAt": "2026-10-16T20:38:22.446Z"
+    }
+  ],
+  "budgets": [
+    {
+      "id": "53d269f3-34e3-410e-9965-c369133a7b08",
+      "direction": "payable",
+      "title": "Conta de luz",
+      "partyId": "86099b1f-837d-42b4-a997-4436c794f302",
+      "partySnapshotName": "Teste",
+      "suggestedAccountId": "account-6-1-1-2",
+      "costCenterId": "demo-center-work",
+      "notes": "",
+      "status": "active",
+      "revision": 2,
+      "scheduleMode": "monthly",
+      "intendedDay": 15,
+      "occurrences": [
+        {
+          "id": "dd715d4d-eee4-4546-821f-10e219608f0c",
+          "plannedDueDate": "2026-11-15",
+          "plannedAmountCents": 34000,
+          "notes": "parc1",
+          "status": "converted",
+          "revision": 2,
+          "createdAt": "2026-10-17T23:42:29.270Z",
+          "updatedAt": "2026-10-18T00:35:44.178Z",
+          "documentType": "payable",
+          "documentId": "fc9a8b90-f8ec-457b-8f1b-78ba67b71486",
+          "convertedAt": "2026-10-18T00:35:44.178Z",
+          "convertedEffectiveDueDate": "2026-11-15",
+          "convertedEffectiveAmountCents": 34000,
+          "conversionSignature": "d3344750e89c9199586a5663aa7e6739a381133e662279261f31d8ff7be100ef"
+        },
+        {
+          "id": "986c993e-94d7-415a-a403-ba21806306ff",
+          "plannedDueDate": "2026-12-15",
+          "plannedAmountCents": 34000,
+          "notes": "parc2",
+          "status": "planned",
+          "revision": 1,
+          "createdAt": "2026-10-17T23:42:29.270Z",
+          "updatedAt": "2026-10-17T23:42:29.270Z"
+        },
+        {
+          "id": "053d08c1-db51-4ef9-bd89-f13f4dfe0b13",
+          "plannedDueDate": "2027-01-15",
+          "plannedAmountCents": 34000,
+          "notes": "parc3",
+          "status": "planned",
+          "revision": 1,
+          "createdAt": "2026-10-17T23:42:29.270Z",
+          "updatedAt": "2026-10-17T23:42:29.270Z"
+        },
+        {
+          "id": "2bd4f6db-c37a-4116-a045-d8bfb9c0b12c",
+          "plannedDueDate": "2027-02-15",
+          "plannedAmountCents": 34000,
+          "notes": "parc4",
+          "status": "planned",
+          "revision": 1,
+          "createdAt": "2026-10-17T23:42:29.270Z",
+          "updatedAt": "2026-10-17T23:42:29.270Z"
+        },
+        {
+          "id": "0ec6145e-d4a4-4e90-b3a4-6e55b5ef7fda",
+          "plannedDueDate": "2027-03-15",
+          "plannedAmountCents": 34000,
+          "notes": "parc5",
+          "status": "planned",
+          "revision": 1,
+          "createdAt": "2026-10-17T23:42:29.270Z",
+          "updatedAt": "2026-10-17T23:42:29.270Z"
+        }
+      ],
+      "createdAt": "2026-10-17T23:42:29.270Z",
+      "updatedAt": "2026-10-18T00:35:44.178Z"
+    }
+  ]
+}

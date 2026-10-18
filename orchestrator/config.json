@@ -1,0 +1,11 @@
+{
+  "workflow_path": "specs/workflow.yaml",
+  "workflow_schema_path": "orchestrator/workflow.schema.json",
+  "state_db_path": ".codex/orchestrator-state.sqlite3",
+  "decision_log_path": "docs/decision-log.md",
+  "dry_run_by_default": true,
+  "allow_real_execution": false,
+  "codex_command": ["codex", "exec", "-"],
+  "execution_timeout_seconds": 120,
+  "max_captured_output_bytes": 65536
+}

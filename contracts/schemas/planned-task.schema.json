@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arqcalc.local/contracts/planned-task.schema.json",
+  "title": "Planning task input for contract generation",
+  "type": "object",
+  "required": ["schema_version", "task_id", "title", "originating_spec_reference", "requirement_ids", "responsible_agent", "scope"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "task_id": {"type": "string", "pattern": "^TASK-[0-9]{3,}$"},
+    "title": {"type": "string", "minLength": 1},
+    "originating_spec_reference": {"type": "string", "pattern": "^SPEC-[0-9]{3,}@[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "requirement_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^(RF|RNF|CA)-[0-9]{3,}$"}},
+    "responsible_agent": {"type": "string", "minLength": 1},
+    "scope": {"type": "string", "minLength": 1},
+    "delivery_target": {"enum": ["package", "local", "staging", "production", "handoff"]},
+    "deployment_scope": {"type": "string", "minLength": 1},
+    "deployment_version": {"type": "string", "minLength": 1},
+    "contract": {
+      "type": "object",
+      "properties": {
+        "type": {"enum": ["product_task", "product_interface"]},
+        "required_inputs": {"type": "array"}, "expected_outputs": {"type": "array"},
+        "preconditions": {"type": "array", "items": {"type": "string"}},
+        "postconditions": {"type": "array", "items": {"type": "string"}},
+        "invariants": {"type": "array", "items": {"type": "string"}},
+        "allowed_paths": {"type": "array", "items": {"type": "string"}},
+        "operations": {"type": "array", "items": {"enum": ["read", "write", "execute", "network"]}},
+        "dependencies": {"type": "array"}, "validation_rules": {"type": "array"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"delivery_target": {"const": "production"}}, "required": ["delivery_target"]},
+      "then": {"required": ["deployment_scope", "deployment_version"]}
+    }
+  ],
+  "additionalProperties": false
+}
