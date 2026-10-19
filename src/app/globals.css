@@ -1,0 +1,58 @@
+:root {
+  color-scheme: light;
+  --pro247-graphite: #1f2937;
+  --pro247-terracotta: #9a3412;
+  --pro247-orange: #f97316;
+  --pro247-peach: #fdba74;
+  --pro247-cream: #fff7ed;
+  --pro247-white: #ffffff;
+  --pro247-paper: #fffdfa;
+  --pro247-line: #e7e2dc;
+  --pro247-muted: #5f6772;
+  --pro247-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --pro247-radius-panel: 2px;
+  --pro247-radius-control: 4px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--pro247-paper);
+  scroll-padding-top: 1rem;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--pro247-paper);
+  color: var(--pro247-graphite);
+  font-family: var(--pro247-font);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--pro247-terracotta);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--pro247-peach);
+  color: var(--pro247-graphite);
+}
